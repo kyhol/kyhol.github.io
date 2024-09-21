@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/kyhol.github.io/static/css/main.b9183848.css",
-    "main.js": "/kyhol.github.io/static/js/main.84fc1768.js",
-    "static/js/453.f7be5b23.chunk.js": "/kyhol.github.io/static/js/453.f7be5b23.chunk.js",
-    "static/media/Lam0.jpg": "/kyhol.github.io/static/media/Lam0.d62a7b3fa8889dbdb54b.jpg",
-    "static/media/Lam1.jpg": "/kyhol.github.io/static/media/Lam1.9c440133eaae357964a0.jpg",
-    "static/media/Lam6.jpg": "/kyhol.github.io/static/media/Lam6.ee14394602f977485599.jpg",
-    "static/media/Lam5.jpg": "/kyhol.github.io/static/media/Lam5.f508f7b11380e06a91d4.jpg",
-    "static/media/Lam2.jpg": "/kyhol.github.io/static/media/Lam2.96cb750619d8917238aa.jpg",
-    "static/media/Lam3.jpg": "/kyhol.github.io/static/media/Lam3.306f13bd86691ec01a39.jpg",
-    "static/media/Lam4.jpg": "/kyhol.github.io/static/media/Lam4.b0b6f5a06c8b07eae3e1.jpg",
-    "static/media/Lam7.jpg": "/kyhol.github.io/static/media/Lam7.f3317ce35c14d544b55c.jpg",
-    "static/media/image2.png": "/kyhol.github.io/static/media/image2.1125484baf393b7d1552.png",
-    "static/media/image1.png": "/kyhol.github.io/static/media/image1.a3f7f74aea903c450358.png",
-    "static/media/computerPic.png": "/kyhol.github.io/static/media/computerPic.65f3e085000190b96d21.png",
-    "static/media/image5.png": "/kyhol.github.io/static/media/image5.753db33f3b0804b9874e.png",
-    "index.html": "/kyhol.github.io/index.html",
-    "static/media/Group 1000005949.svg": "/kyhol.github.io/static/media/Group 1000005949.17cc6b0dcbf10dce6d73ddc6f5741261.svg",
-    "static/media/Group 1000005950.svg": "/kyhol.github.io/static/media/Group 1000005950.718cbbb40400e45b44f00cf941403964.svg",
-    "main.b9183848.css.map": "/kyhol.github.io/static/css/main.b9183848.css.map",
-    "main.84fc1768.js.map": "/kyhol.github.io/static/js/main.84fc1768.js.map",
-    "453.f7be5b23.chunk.js.map": "/kyhol.github.io/static/js/453.f7be5b23.chunk.js.map"
+    "main.css": "/static/css/main.b9183848.css",
+    "main.js": "/static/js/main.fe474b90.js",
+    "static/js/453.f7be5b23.chunk.js": "/static/js/453.f7be5b23.chunk.js",
+    "static/media/Lam0.jpg": "/static/media/Lam0.d62a7b3fa8889dbdb54b.jpg",
+    "static/media/Lam1.jpg": "/static/media/Lam1.9c440133eaae357964a0.jpg",
+    "static/media/Lam6.jpg": "/static/media/Lam6.ee14394602f977485599.jpg",
+    "static/media/Lam5.jpg": "/static/media/Lam5.f508f7b11380e06a91d4.jpg",
+    "static/media/Lam2.jpg": "/static/media/Lam2.96cb750619d8917238aa.jpg",
+    "static/media/Lam3.jpg": "/static/media/Lam3.306f13bd86691ec01a39.jpg",
+    "static/media/Lam4.jpg": "/static/media/Lam4.b0b6f5a06c8b07eae3e1.jpg",
+    "static/media/Lam7.jpg": "/static/media/Lam7.f3317ce35c14d544b55c.jpg",
+    "static/media/image2.png": "/static/media/image2.1125484baf393b7d1552.png",
+    "static/media/image1.png": "/static/media/image1.a3f7f74aea903c450358.png",
+    "static/media/computerPic.png": "/static/media/computerPic.65f3e085000190b96d21.png",
+    "static/media/image5.png": "/static/media/image5.753db33f3b0804b9874e.png",
+    "index.html": "/index.html",
+    "static/media/Group 1000005949.svg": "/static/media/Group 1000005949.17cc6b0dcbf10dce6d73ddc6f5741261.svg",
+    "static/media/Group 1000005950.svg": "/static/media/Group 1000005950.718cbbb40400e45b44f00cf941403964.svg",
+    "main.b9183848.css.map": "/static/css/main.b9183848.css.map",
+    "main.fe474b90.js.map": "/static/js/main.fe474b90.js.map",
+    "453.f7be5b23.chunk.js.map": "/static/js/453.f7be5b23.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b9183848.css",
-    "static/js/main.84fc1768.js"
+    "static/js/main.fe474b90.js"
   ]
 }
