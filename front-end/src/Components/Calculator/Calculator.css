@@ -1,0 +1,81 @@
+.calcContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height for centering */
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #515151;
+  border-radius: 15px;
+  max-width: 500px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+#display {
+  width: 100%;
+  padding: 20px;
+  font-size: 2rem;
+  background-color: hsl(0, 0%, 90%);
+  text-align: right;
+  border: 2px solid black;
+  color: black;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 25px;
+  background-color: rgb(43, 164, 212);
+}
+
+button {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  background-color: hsl(0, 0%, 30%);
+  color: rgb(43, 164, 212);
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 3px;
+}
+
+button:hover {
+  background-color: hsl(0, 0%, 40%);
+}
+
+button:active {
+  background-color: hsl(0, 0%, 50%);
+}
+
+.operator-btn {
+  background-color: hsl(39, 100%, 55%);
+}
+
+.operator-btn:hover {
+  background-color: hsl(39, 100%, 65%);
+}
+
+.operator-btn:active {
+  background-color: hsl(39, 100%, 75%);
+}
+
+#calculate {
+  grid-column: span 2; /* Make the equals button span two columns */
+}
+.returnToPortfolioButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #fde1ff, #e1ffae22 60%);
+}

@@ -1,2 +1,1 @@
-# kyhol.github.io
-Portfolio
+# packages installed react, react-image-carousel, react-router-dom, react-icons, react-font-poppins tailwind

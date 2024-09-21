@@ -1,0 +1,28 @@
+/* LandingPage.css */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.landing-container h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.landing-container p {
+  font-size: 1.5rem;
+}
+
+.landing-container hr {
+  color: black;
+}
+.landing-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
