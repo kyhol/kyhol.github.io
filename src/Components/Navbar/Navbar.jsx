@@ -19,35 +19,69 @@ const Navbar = () => {
       <div className="navbar-right">
         <Link to="/">Home</Link>
         <div className="dropdown">
-          <button className="dropbtn">Projects</button>
-          <ul className="dropdown-content">
-            <li>
-              <Link to="/calculator">Calculator</Link>
-            </li>
-            <li>
-              <Link to="/grocery-list">Grocery List</Link>
-            </li>
-            <li>
-              <Link to="/carousel">Carousel</Link>
-            </li>
-            <li>
-              <Link to="/snake-game">Snake Game</Link>
-            </li>
-            <li>
-              <Link to="/stopwatch">Stopwatch</Link>
-            </li>
-            <li>
-              <Link to="/text-to-speech">Text to Speech</Link>
-            </li>
-            <li>
-              <Link to="/todo-list">Todo List</Link>
-            </li>
-            <li>
-              <Link to="/weather-app">Weather App</Link>
-            </li>
-          </ul>
+          <button className="dropbtn">Keyin</button>
+          <div className="dropdown-content">
+            <div className="semester-category">
+              <span className="semester-title">Semester 1</span>
+              <div className="semester-projects"></div>
+            </div>
+            <div className="semester-category">
+              <span className="semester-title">Semester 2</span>
+              <div className="semester-projects">
+                {/* Add Semester 2 projects here */}
+              </div>
+            </div>
+            <div className="semester-category">
+              <span className="semester-title">Semester 3</span>
+              <div className="semester-projects">
+                {/* Add Semester 3 projects here */}
+              </div>
+            </div>
+            <div className="semester-category">
+              <span className="semester-title">Semester 4</span>
+              <div className="semester-projects">
+                {/* Add Semester 4 projects here */}
+              </div>
+            </div>
+          </div>
         </div>
-        <Link to="/about-me">About Me</Link>
+        <div className="dropdown">
+          <button className="dropbtn">Side Projects</button>
+          <div className="dropdown-content">
+            <div className="semester-category">
+              <span className="semester-title">Semester 1</span>
+              <div className="semester-projects">
+                <Link to="/calculator">Calculator</Link>
+                <Link to="/grocery-list">Grocery List</Link>
+                <Link to="/carousel">Carousel</Link>
+                <Link to="/snake-game">Snake Game</Link>
+                <Link to="/stopwatch">Stopwatch</Link>
+                <Link to="/text-to-speech">Text to Speech</Link>
+                <Link to="/todo-list">Todo List</Link>
+                <Link to="/weather-app">Weather App</Link>
+              </div>
+            </div>
+            <div className="semester-category">
+              <span className="semester-title">Semester 2</span>
+              <div className="semester-projects">
+                {/* Add Semester 2 projects here */}
+              </div>
+            </div>
+            <div className="semester-category">
+              <span className="semester-title">Semester 3</span>
+              <div className="semester-projects">
+                {/* Add Semester 3 projects here */}
+              </div>
+            </div>
+            <div className="semester-category">
+              <span className="semester-title">Semester 4</span>
+              <div className="semester-projects">
+                {/* Add Semester 4 projects here */}
+              </div>
+            </div>
+          </div>
+        </div>
+        <Link to="/about-me">About</Link>
         <Link to="/contact">Contact</Link>
       </div>
     </div>

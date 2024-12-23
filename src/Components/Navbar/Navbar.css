@@ -3,13 +3,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background-color: #333; /* Background color for the navbar */
+  background-color: #333;
   color: white;
   width: 100vw;
-  position: fixed; /* Make the navbar stay at the top */
-  top: 0; /* Position it at the top */
-  left: 0; /* Align to the left */
-  z-index: 1000; /* Ensure it stays above other content */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .navbar-left {
@@ -25,7 +25,7 @@
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 20px; /* Gap between each link */
+  gap: 20px;
 }
 
 .navbar-right a {
@@ -36,7 +36,7 @@
 }
 
 .navbar-right a:hover {
-  background-color: #555; /* Hover effect for links */
+  background-color: #555;
   border-radius: 5px;
 }
 
@@ -58,24 +58,53 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 150px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-.dropdown-content li {
-  padding: 12px 16px;
-  list-style: none;
+.semester-category {
+  position: relative;
 }
 
-.dropdown-content li a {
-  color: black;
-  text-decoration: none;
+.semester-title {
+  display: block;
+  padding: 12px 16px;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  background-color: #f3f3f3;
+}
+
+.semester-title:hover {
+  background-color: #e9e9e9;
+}
+
+.semester-projects {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.semester-category:hover .semester-projects {
   display: block;
 }
 
-.dropdown-content li a:hover {
-  background-color: #f1f1f1;
+.semester-projects a {
+  color: black !important;
+  padding: 8px 24px !important;
+  display: block;
+  text-decoration: none;
+}
+
+.semester-projects a:hover {
+  background-color: #f1f1f1 !important;
+  border-radius: 0 !important;
 }
 
 .dropdown:hover .dropdown-content {
@@ -85,4 +114,9 @@
 .dropdown:hover .dropbtn {
   background-color: #555;
   border-radius: 5px;
+}
+
+/* Hide empty semester projects */
+.semester-projects:empty {
+  display: none;
 }
