@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, #fde1ff, #e1ffae22 60%);
+  background: linear-gradient(180deg, blue, teal 60%);
   padding: 10px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -12,12 +12,12 @@
 
 .returnToPortfolioButton a {
   text-decoration: none;
-  color: #333;
+  color: #dfdfdf;
   font-weight: bold;
   font-size: 16px;
 }
 
 .returnToPortfolioButton:hover {
   transform: scale(1.05);
-  background: linear-gradient(180deg, #e1ffae, #fde1ff 60%);
+  background: linear-gradient(180deg, blue, teal 60%);
 }
