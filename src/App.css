@@ -23,6 +23,7 @@ body {
   align-items: center; /* Centers content vertically */
   padding: 20px;
   margin-top: 3rem;
+  background-color: #282828;
 }
 /*
   1. Use a more-intuitive box-sizing model.

@@ -1,0 +1,42 @@
+@keyframes swingInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes swingInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.swing-in-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1s ease-out;
+  visibility: hidden; /* Start hidden */
+}
+
+.swing-in-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1s ease-out;
+  visibility: hidden; /* Start hidden */
+}
+
+.animate-swing-left,
+.animate-swing-right {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible; /* Show when animated */
+}
