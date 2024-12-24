@@ -51,7 +51,7 @@ const Navbar = () => {
           <button className="dropbtn">Side Projects</button>
           <div className="dropdown-content">
             <div className="semester-category">
-              <span className="semester-title">Semester 1</span>
+              <span className="semester-title">Beginner</span>
               <div className="semester-projects">
                 <Link to="/calculator">Calculator</Link>
                 <Link to="/grocery-list">Grocery List</Link>
@@ -64,21 +64,15 @@ const Navbar = () => {
               </div>
             </div>
             <div className="semester-category">
-              <span className="semester-title">Semester 2</span>
+              <span className="semester-title">Intermediate</span>
               <div className="semester-projects">
                 {/* Add Semester 2 projects here */}
               </div>
             </div>
             <div className="semester-category">
-              <span className="semester-title">Semester 3</span>
+              <span className="semester-title">Expert</span>
               <div className="semester-projects">
                 {/* Add Semester 3 projects here */}
-              </div>
-            </div>
-            <div className="semester-category">
-              <span className="semester-title">Semester 4</span>
-              <div className="semester-projects">
-                {/* Add Semester 4 projects here */}
               </div>
             </div>
           </div>

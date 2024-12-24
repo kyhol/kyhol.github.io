@@ -49,9 +49,12 @@ const AboutDescription = () => {
                   Community Impact
                 </h3>
                 <p style={{ color: "whitesmoke" }}>
-                  From mental wellness initiatives at The Wellness Collective to
-                  sustainable furniture restoration at Home Again Furniture
-                  Bank, I believe in tech that serves a greater purpose.
+                  From mental wellness at The Wellness Collective to sustainable
+                  furniture restoration at Home Again Furniture Bank, I'm driven
+                  to create technologies that address human struggles and foster
+                  community growth. By understanding our shared challenges, we
+                  can develop innovative solutions that truly support individual
+                  and collective progress.
                 </p>
               </div>
 
@@ -61,9 +64,9 @@ const AboutDescription = () => {
                   Continuous Growth
                 </h3>
                 <p style={{ color: "whitesmoke" }}>
-                  Each day brings new opportunities to learn and evolve. Whether
-                  it's mastering a new framework or nurturing my garden, growth
-                  is at the heart of everything I do.
+                  Each day presents opportunities for growth and learning.
+                  Whether mastering a new framework or pursuing personal
+                  development, evolution is my constant companion.
                 </p>
               </div>
 

@@ -8,16 +8,20 @@ import SnakeGameImage from "./Assets/image3.png";
 import WeatherAppImage from "./Assets/image5.png";
 import LanguageExperience from "../LanguageExperience/LanguageExperience";
 import LandingAbout from "../LandingAbout/LandingAbout";
+import SocialLinks from "../SocialLinks/SocialLinks";
 
 const LandingPage = () => {
   return (
     <div className="landing-container">
       <LandingAbout />
-      <h2>Coding Skills</h2>
+      <h2 style={{ color: "whitesmoke" }}>Coding Skills</h2>
       <hr />
       <LanguageExperience />
+
       <hr />
-      <h2>Featured Projects</h2>
+      <SocialLinks />
+      <h2 style={{ color: "whitesmoke" }}>Beginner Projects</h2>
+
       <ProjectContainer
         title="Calculator App"
         description="A simple calculator built with React."

@@ -1,8 +1,7 @@
 import React from "react";
-import "./PowerPoint.css";
+import ReturnToPortfolioButton from "../../ReturnToPortfolioButton/ReturnToPortfolioButton";
 
 const PowerPoint = () => {
-  // Using your GitHub Pages URL
   const baseUrl = "https://kyhol.github.io";
   const pptxUrl = `${baseUrl}/PowerPointSemester1.pptx`;
   const embedUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(
@@ -10,13 +9,17 @@ const PowerPoint = () => {
   )}`;
 
   return (
-    <div className="presentation-container">
-      <h1>Keyin Semester 1 Presentation</h1>
-      <div className="presentation-wrapper">
+    <div className="flex flex-col items-center w-full min-h-screen p-4">
+      <div className="w-full flex justify-center mb-6">
+        <ReturnToPortfolioButton />
+      </div>
+
+      <h1 className="text-2xl font-bold mb-8">Keyin Semester 1 Presentation</h1>
+
+      <div className="w-full h-[calc(100vh-200px)] rounded-lg overflow-hidden shadow-lg">
         <iframe
           src={embedUrl}
-          width="100%"
-          height="100%"
+          className="w-full h-full"
           frameBorder="0"
           allowFullScreen={true}
           mozallowfullscreen="true"
