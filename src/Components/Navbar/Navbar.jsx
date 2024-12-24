@@ -23,7 +23,9 @@ const Navbar = () => {
           <div className="dropdown-content">
             <div className="semester-category">
               <span className="semester-title">Semester 1</span>
-              <div className="semester-projects"></div>
+              <div className="semester-projects">
+                <Link to="/keyin-presentation">PowerPoint</Link>
+              </div>
             </div>
             <div className="semester-category">
               <span className="semester-title">Semester 2</span>

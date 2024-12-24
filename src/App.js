@@ -13,6 +13,7 @@ import LandingPage from "./Components/LandingPage/LandingPage";
 import Footer from "./Components/Footer/Footer";
 import AboutMe from "./Pages/About";
 import Contact from "./Pages/Contact";
+import KeyinPresentation from "./Components/Semester1/PowerPoint/PowerPoint";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/weather-app" element={<WeatherApp />} />
             <Route path="/about-me" element={<AboutMe />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/keyin-presentation" element={<KeyinPresentation />} />
           </Routes>
         </div>
         <Footer />

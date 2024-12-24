@@ -38,8 +38,8 @@ const AboutDescription = () => {
                 <p style={{ color: "whitesmoke" }}>
                   Diving deep into full-stack development, I'm crafting modern
                   web solutions that bridge imagination and functionality. Every
-                  line of code is an opportunity to create something meaningful
-                  and impactful.
+                  project is an opportunity to create something meaningful and
+                  impactful.
                 </p>
               </div>
 
