@@ -5,22 +5,20 @@ import BlockBuster from "../../Assets/Profile/BlockBuster.jpg";
 import ChickenGun from "../../Assets/Profile/ChickenGun.jpg";
 import OminousPrayer from "../../Assets/Profile/OminousPrayer.jpg";
 import StoryTime from "../../Assets/Profile/StoryTime.jpg";
-import ChristmasFun from "../../Assets/Profile/ChristmasFun.jpg";
+import JamesWeb from "../../Assets/Profile/JamesWeb.jpg";
 
 const PortfolioPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const galleryItems = [
-    { id: 1, title: "AI Generated Art 1", src: EJSFinal },
-    { id: 2, title: "UI Design 1", src: BlockBuster },
-    { id: 3, title: "AI Generated Art 2", src: ChristmasFun },
-    { id: 4, title: "UI Design 2", src: ChickenGun },
-    { id: 5, title: "AI Generated Art 3", src: OminousPrayer },
-    { id: 6, title: "UI Design 3", src: StoryTime },
+    { id: 1, title: "UI Design", src: EJSFinal },
+    { id: 2, title: "AI Art", src: BlockBuster },
+    { id: 4, title: "AI Art", src: ChickenGun },
+    { id: 5, title: "AI Art", src: OminousPrayer },
+    { id: 6, title: "AI Art", src: StoryTime },
   ];
 
-  // Added galleryItems.length as a dependency
   useEffect(() => {
     const interval = setInterval(() => {
       setIsAnimating(true);
@@ -33,15 +31,29 @@ const PortfolioPage = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [galleryItems.length]); // Added dependency
+  }, [galleryItems.length]);
 
   return (
     <div
-      className="text-center min-h-[400px] rounded-3xl p-8"
-      style={{ backgroundColor: "#333", height: "75vh" }}
+      className="text-center min-h-[400px] rounded-3xl p-8 relative"
+      style={{ height: "75vh" }}
     >
-      <div className="w-full h-full flex">
-        {/* Left Side - Profile */}
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 rounded-3xl overflow-hidden"
+        style={{
+          backgroundImage: `url(${JamesWeb})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 1,
+          backgroundColor: "#333",
+          backgroundBlendMode: "overlay",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative w-full h-full flex z-10">
+        {/* Rest of the component remains the same */}
         <div className="w-1/2 h-full flex items-center justify-center">
           <div className="flex flex-col items-center gap-6">
             <div className="rounded-2xl overflow-hidden bg-gray-700 p-4">
@@ -61,7 +73,6 @@ const PortfolioPage = () => {
           </div>
         </div>
 
-        {/* Right Side - Gallery */}
         <div className="w-1/2 h-full flex items-center justify-center p-4">
           <div className="relative perspective">
             <div
@@ -85,7 +96,6 @@ const PortfolioPage = () => {
         </div>
       </div>
 
-      {/* Animation styles */}
       <style jsx>{`
         .perspective {
           perspective: 1500px;
