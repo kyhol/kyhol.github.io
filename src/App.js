@@ -14,6 +14,10 @@ import Footer from "./Components/Footer/Footer";
 import AboutMe from "./Pages/About";
 import Contact from "./Pages/Contact";
 import KeyinPresentation from "./Components/Semester1/PowerPoint/PowerPoint";
+import MentalHealthInfo from "./Components/Semester1/MentalHealth/MentalHealth";
+import FizzBuzz from "./Components/Semester1/FizzBuzz/FizzBuzz";
+import Final from "./Components/Semester1/Final/Final";
+import Robot from "./Components/Semester1/Robot/Robot";
 
 function App() {
   return (
@@ -34,6 +38,10 @@ function App() {
             <Route path="/about-me" element={<AboutMe />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/keyin-presentation" element={<KeyinPresentation />} />
+            <Route path="/mental-health" element={<MentalHealthInfo />} />
+            <Route path="/fizzbuzz" element={<FizzBuzz />} />
+            <Route path="/Final" element={<Final />} />
+            <Route path="/robot" element={<Robot />} />
           </Routes>
         </div>
         <Footer />

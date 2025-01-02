@@ -1,4 +1,3 @@
-// components/animations/TraceAndPopAnimation.jsx
 import React, { useEffect, useRef } from "react";
 
 const TraceAndPopAnimation = ({

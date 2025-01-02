@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 const navBarName = (
   <>
     <span className="default-font">&lt;</span>
-    Kyle Hollett
+    <Link to="/" className="kyleHollett">
+      Kyle Hollett
+    </Link>
     <span className="default-font">&gt;</span>
   </>
 );
@@ -25,6 +27,10 @@ const Navbar = () => {
               <span className="semester-title">Semester 1</span>
               <div className="semester-projects">
                 <Link to="/keyin-presentation">PowerPoint</Link>
+                <Link to="/mental-health">JS Assignment</Link>
+                <Link to="/fizzbuzz">Python Midterm</Link>
+                <Link to="/Final">Python Final</Link>
+                <Link to="/robot">Robot Final</Link>
               </div>
             </div>
             <div className="semester-category">
