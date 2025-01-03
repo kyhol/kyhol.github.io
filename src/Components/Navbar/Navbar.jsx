@@ -36,18 +36,21 @@ const Navbar = () => {
             <div className="semester-category">
               <span className="semester-title">Semester 2</span>
               <div className="semester-projects">
+                <Link to="/dog-gallery">Dog Gallery</Link>
                 {/* Add Semester 2 projects here */}
               </div>
             </div>
             <div className="semester-category">
               <span className="semester-title">Semester 3</span>
               <div className="semester-projects">
+                Coming Soon
                 {/* Add Semester 3 projects here */}
               </div>
             </div>
             <div className="semester-category">
               <span className="semester-title">Semester 4</span>
               <div className="semester-projects">
+                Coming Soon
                 {/* Add Semester 4 projects here */}
               </div>
             </div>
@@ -57,7 +60,7 @@ const Navbar = () => {
           <button className="dropbtn">Side Projects</button>
           <div className="dropdown-content">
             <div className="semester-category">
-              <span className="semester-title">Beginner</span>
+              <span className="semester-title">2024</span>
               <div className="semester-projects">
                 <Link to="/calculator">Calculator</Link>
                 <Link to="/grocery-list">Grocery List</Link>
@@ -70,21 +73,23 @@ const Navbar = () => {
               </div>
             </div>
             <div className="semester-category">
-              <span className="semester-title">Intermediate</span>
+              <span className="semester-title">2025</span>
               <div className="semester-projects">
-                {/* Add Semester 2 projects here */}
+                <Link to="/paintapp">Simple Paint App</Link>
               </div>
             </div>
             <div className="semester-category">
-              <span className="semester-title">Expert</span>
-              <div className="semester-projects">
-                {/* Add Semester 3 projects here */}
-              </div>
+              <span className="semester-title">2026</span>
+              <div className="semester-projects">Coming Soon</div>
             </div>
           </div>
         </div>
         <Link to="/about-me">About</Link>
-        <Link to="/contact">Contact</Link>
+        {/* <Link to="/contact">Contact</Link> */}
+        <hr />
+        <hr />
+        <hr />
+        <hr />
       </div>
     </div>
   );

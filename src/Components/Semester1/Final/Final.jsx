@@ -40,12 +40,21 @@ const ProjectCard = ({
   codeSnippet,
   highlights = [],
   contributors = [],
+  demoGif = "/FinalsTaxiGif.gif",
 }) => {
   return (
     <div className="border border-gray-700 rounded-lg shadow-md p-6 max-w-2xl mx-auto mb-8 bg-gray-800">
       <div className="mb-4">
         <h2 className="text-2xl font-bold mb-2 text-gray-100">{title}</h2>
         <p className="text-gray-300">{description}</p>
+      </div>
+
+      <div className="mb-6">
+        <img
+          src={demoGif}
+          alt="Program Demo"
+          className="rounded-lg w-full max-h-40 object-contain bg-black"
+        />
       </div>
 
       {contributors.length > 0 && (
@@ -134,6 +143,7 @@ const Semester1PyFinal = () => {
         "ERD Design",
       ],
       pythonPackages: ["datetime", "os", "sys", "time", "re"],
+      demoGif: "/FinalsTaxiGif.gif",
       codeSnippet: `def main_menu():
     while True:
         print("   ╔═══════════════════════════════════════════════╗")

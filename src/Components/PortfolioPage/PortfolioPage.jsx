@@ -41,8 +41,8 @@ const PortfolioPage = () => {
             <h1 className="text-5xl font-bold text-gray-100">Hi, I'm Kyle</h1>
 
             <p className="text-lg text-blue-400">
-              Junior Developer <span className="mx-2">⟹</span> Student at Keyin
-              College
+              Software Developer <span className="mx-2">⟹</span> Student at
+              Keyin College
             </p>
           </div>
         </div>

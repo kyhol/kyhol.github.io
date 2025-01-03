@@ -34,7 +34,7 @@ const LandingPicLeftTextRight = () => {
               Welcome to My Portfolio
             </h2>
             <p className="mb-4 ml-16" style={{ color: "whitesmoke" }}>
-              I specialize in creating modern web applications...
+              I specialize in creating modern web applications.
             </p>
             <p className="ml-16" style={{ color: "whitesmoke" }}>
               Through my studies at Keyin College...

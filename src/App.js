@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Calculator from "./Components/Calculator/Calculator";
 import GroceryList from "./Components/GroceryList/GroceryList";
@@ -18,33 +18,48 @@ import MentalHealthInfo from "./Components/Semester1/MentalHealth/MentalHealth";
 import FizzBuzz from "./Components/Semester1/FizzBuzz/FizzBuzz";
 import Final from "./Components/Semester1/Final/Final";
 import Robot from "./Components/Semester1/Robot/Robot";
+import PaintApp from "./Components/SideProjects2025/Paint/PaintApp";
+import DogGalleryApp from "./Components/Semester2/DogGalleryApp.jsx";
+
+function AppContent() {
+  const location = useLocation();
+  const isDogGallery = location.pathname.includes("/dog-gallery");
+
+  return (
+    <>
+      {!isDogGallery && <Navbar />}
+      <div className={isDogGallery ? undefined : "main-content"}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/grocery-list" element={<GroceryList />} />
+          <Route path="/carousel" element={<Carousel />} />
+          <Route path="/snake-game" element={<SnakeGame />} />
+          <Route path="/stopwatch" element={<Stopwatch />} />
+          <Route path="/text-to-speech" element={<TextToSpeech />} />
+          <Route path="/todo-list" element={<TodoList />} />
+          <Route path="/weather-app" element={<WeatherApp />} />
+          <Route path="/about-me" element={<AboutMe />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/keyin-presentation" element={<KeyinPresentation />} />
+          <Route path="/mental-health" element={<MentalHealthInfo />} />
+          <Route path="/fizzbuzz" element={<FizzBuzz />} />
+          <Route path="/Final" element={<Final />} />
+          <Route path="/robot" element={<Robot />} />
+          <Route path="/paintapp" element={<PaintApp />} />
+          <Route path="/dog-gallery/*" element={<DogGalleryApp />} />
+        </Routes>
+      </div>
+      {!isDogGallery && <Footer />}
+    </>
+  );
+}
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
-        <div className="main-content">
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/calculator" element={<Calculator />} />
-            <Route path="/grocery-list" element={<GroceryList />} />
-            <Route path="/carousel" element={<Carousel />} />
-            <Route path="/snake-game" element={<SnakeGame />} />
-            <Route path="/stopwatch" element={<Stopwatch />} />
-            <Route path="/text-to-speech" element={<TextToSpeech />} />
-            <Route path="/todo-list" element={<TodoList />} />
-            <Route path="/weather-app" element={<WeatherApp />} />
-            <Route path="/about-me" element={<AboutMe />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/keyin-presentation" element={<KeyinPresentation />} />
-            <Route path="/mental-health" element={<MentalHealthInfo />} />
-            <Route path="/fizzbuzz" element={<FizzBuzz />} />
-            <Route path="/Final" element={<Final />} />
-            <Route path="/robot" element={<Robot />} />
-          </Routes>
-        </div>
-        <Footer />
+        <AppContent />
       </BrowserRouter>
     </div>
   );
