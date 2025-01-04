@@ -20,7 +20,13 @@ import Final from "./Components/Semester1/Final/Final";
 import Robot from "./Components/Semester1/Robot/Robot";
 import PaintApp from "./Components/SideProjects2025/Paint/PaintApp";
 import DogGalleryApp from "./Components/Semester2/DogGalleryApp.jsx";
-
+import Sem2MidTerm from "./Components/Semester2/MidTerm/Sem2MidTerm";
+import Sem2Final from "./Components/Semester2/Final/Sem2Final";
+import Sem3EJSFinal from "./Components/Semester3/Sem3EJSFinal.jsx";
+import Sem3EJSMidterms from "./Components/Semester3/Sem3EJSMidterms.jsx";
+import Sem3JavaFinal from "./Components/Semester3/Sem3JavaFinal.jsx";
+import Sem3JavaMidTerm from "./Components/Semester3/Sem3JavaMidTerm.jsx";
+import Sem3SQLMidTerm from "./Components/Semester3/Sem3SQLMidTerm.jsx";
 function AppContent() {
   const location = useLocation();
   const isDogGallery = location.pathname.includes("/dog-gallery");
@@ -48,6 +54,13 @@ function AppContent() {
           <Route path="/robot" element={<Robot />} />
           <Route path="/paintapp" element={<PaintApp />} />
           <Route path="/dog-gallery/*" element={<DogGalleryApp />} />
+          <Route path="/midterm" element={<Sem2MidTerm />} />
+          <Route path="/Sem2Final" element={<Sem2Final />} />
+          <Route path="/Sem3EJSFinal" element={<Sem3EJSFinal />} />
+          <Route path="/Sem3EJSMidterms" element={<Sem3EJSMidterms />} />
+          <Route path="/Sem3JavaFinal" element={<Sem3JavaFinal />} />
+          <Route path="/Sem3JavaMidTerm" element={<Sem3JavaMidTerm />} />
+          <Route path="/Sem3SQLMidTerm" element={<Sem3SQLMidTerm />} />
         </Routes>
       </div>
       {!isDogGallery && <Footer />}

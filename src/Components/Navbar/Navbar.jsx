@@ -37,13 +37,19 @@ const Navbar = () => {
               <span className="semester-title">Semester 2</span>
               <div className="semester-projects">
                 <Link to="/dog-gallery">Dog Gallery</Link>
+                <Link to="/midterm">Midterm</Link>
+                <Link to="/Sem2Final">Final</Link>
                 {/* Add Semester 2 projects here */}
               </div>
             </div>
             <div className="semester-category">
               <span className="semester-title">Semester 3</span>
               <div className="semester-projects">
-                Coming Soon
+                <Link to="/Sem3SQLMidTerm"> SQL Midterm</Link>
+                <Link to="/Sem3EJSMidterms"> EJS Midterm</Link>
+                <Link to="/Sem3EJSFinal"> EJS Final</Link>
+                <Link to="/Sem3JavaMidTerm"> Java Midterm</Link>
+                <Link to="/Sem3JavaFinal"> Java Final</Link>
                 {/* Add Semester 3 projects here */}
               </div>
             </div>
