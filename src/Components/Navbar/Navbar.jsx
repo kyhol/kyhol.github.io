@@ -82,6 +82,8 @@ const Navbar = () => {
               <span className="semester-title">2025</span>
               <div className="semester-projects">
                 <Link to="/paintapp">Simple Paint App</Link>
+                <Link to="/TypingPractice">Typing Practice</Link>
+                <Link to="/wildfire-proximity">Wildfire Proximity</Link>
               </div>
             </div>
             <div className="semester-category">

@@ -1,0 +1,101 @@
+{
+  "exercises": {
+    "beginner": [
+      {
+        "id": "b1",
+        "title": "Hello World",
+        "description": "Create a simple Hello World program to understand basic syntax",
+        "difficulty": 1,
+        "category": "basics",
+        "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}",
+        "concepts": ["class declaration", "main method", "print statement"]
+      },
+      {
+        "id": "b2",
+        "title": "Variable Declaration",
+        "description": "Practice declaring and initializing different variable types",
+        "difficulty": 1,
+        "category": "basics",
+        "code": "public class Variables {\n    public static void main(String[] args) {\n        // Primitive data types\n        int age = 25;\n        double salary = 50000.50;\n        boolean isEmployed = true;\n        char grade = 'A';\n        \n        // String object\n        String name = \"John Doe\";\n        \n        // Print all variables\n        System.out.println(\"Name: \" + name);\n        System.out.println(\"Age: \" + age);\n        System.out.println(\"Salary: $\" + salary);\n        System.out.println(\"Employed: \" + isEmployed);\n        System.out.println(\"Grade: \" + grade);\n    }\n}",
+        "concepts": ["variables", "data types", "string concatenation"]
+      },
+      {
+        "id": "b3",
+        "title": "Basic Calculator",
+        "description": "Create a simple calculator using arithmetic operators",
+        "difficulty": 2,
+        "category": "basics",
+        "code": "public class Calculator {\n    public static void main(String[] args) {\n        int num1 = 10;\n        int num2 = 5;\n        \n        // Basic operations\n        int sum = num1 + num2;\n        int difference = num1 - num2;\n        int product = num1 * num2;\n        int quotient = num1 / num2;\n        int remainder = num1 % num2;\n        \n        System.out.println(num1 + \" + \" + num2 + \" = \" + sum);\n        System.out.println(num1 + \" - \" + num2 + \" = \" + difference);\n        System.out.println(num1 + \" * \" + num2 + \" = \" + product);\n        System.out.println(num1 + \" / \" + num2 + \" = \" + quotient);\n        System.out.println(num1 + \" % \" + num2 + \" = \" + remainder);\n    }\n}",
+        "concepts": ["arithmetic operators", "variables", "printing"]
+      }
+    ],
+    "intermediate": [
+      {
+        "id": "i1",
+        "title": "Array Operations",
+        "description": "Practice working with arrays and common array operations",
+        "difficulty": 3,
+        "category": "data structures",
+        "code": "public class ArrayOperations {\n    public static void main(String[] args) {\n        // Initialize array\n        int[] numbers = {5, 2, 8, 1, 9, 3};\n        \n        // Find maximum value\n        int max = numbers[0];\n        for (int num : numbers) {\n            if (num > max) {\n                max = num;\n            }\n        }\n        \n        // Calculate average\n        double sum = 0;\n        for (int num : numbers) {\n            sum += num;\n        }\n        double average = sum / numbers.length;\n        \n        // Print results\n        System.out.println(\"Maximum value: \" + max);\n        System.out.println(\"Average value: \" + average);\n    }\n}",
+        "concepts": ["arrays", "loops", "conditionals"]
+      },
+      {
+        "id": "i2",
+        "title": "Student Class",
+        "description": "Create a class to understand object-oriented programming concepts",
+        "difficulty": 4,
+        "category": "oop",
+        "code": "public class Student {\n    // Instance variables\n    private String name;\n    private int age;\n    private double gpa;\n    \n    // Constructor\n    public Student(String name, int age, double gpa) {\n        this.name = name;\n        this.age = age;\n        this.gpa = gpa;\n    }\n    \n    // Getters and setters\n    public String getName() {\n        return name;\n    }\n    \n    public void setName(String name) {\n        this.name = name;\n    }\n    \n    public int getAge() {\n        return age;\n    }\n    \n    public void setAge(int age) {\n        this.age = age;\n    }\n    \n    public double getGpa() {\n        return gpa;\n    }\n    \n    public void setGpa(double gpa) {\n        this.gpa = gpa;\n    }\n    \n    // Method to check if student is honor roll\n    public boolean isHonorRoll() {\n        return gpa >= 3.5;\n    }\n}",
+        "concepts": ["classes", "objects", "encapsulation", "methods"]
+      }
+    ],
+    "advanced": [
+      {
+        "id": "a1",
+        "title": "Generic Stack Implementation",
+        "description": "Implement a generic stack data structure",
+        "difficulty": 7,
+        "category": "data structures",
+        "code": "public class Stack<T> {\n    private class Node {\n        T data;\n        Node next;\n        \n        Node(T data) {\n            this.data = data;\n            this.next = null;\n        }\n    }\n    \n    private Node top;\n    private int size;\n    \n    public Stack() {\n        top = null;\n        size = 0;\n    }\n    \n    public void push(T item) {\n        Node newNode = new Node(item);\n        newNode.next = top;\n        top = newNode;\n        size++;\n    }\n    \n    public T pop() throws EmptyStackException {\n        if (isEmpty()) {\n            throw new EmptyStackException();\n        }\n        T item = top.data;\n        top = top.next;\n        size--;\n        return item;\n    }\n    \n    public T peek() throws EmptyStackException {\n        if (isEmpty()) {\n            throw new EmptyStackException();\n        }\n        return top.data;\n    }\n    \n    public boolean isEmpty() {\n        return top == null;\n    }\n    \n    public int size() {\n        return size;\n    }\n}",
+        "concepts": ["generics", "linked lists", "exception handling"]
+      },
+      {
+        "id": "a2",
+        "title": "Thread-Safe Singleton",
+        "description": "Implement a thread-safe singleton pattern",
+        "difficulty": 8,
+        "category": "design patterns",
+        "code": "public class Singleton {\n    private static volatile Singleton instance;\n    private static final Object lock = new Object();\n    \n    private Singleton() {\n        // Private constructor to prevent instantiation\n        if (instance != null) {\n            throw new IllegalStateException(\"Already initialized.\");\n        }\n    }\n    \n    public static Singleton getInstance() {\n        Singleton result = instance;\n        \n        if (result == null) {\n            synchronized (lock) {\n                result = instance;\n                if (result == null) {\n                    instance = result = new Singleton();\n                }\n            }\n        }\n        \n        return result;\n    }\n    \n    // Example method\n    public void doSomething() {\n        System.out.println(\"Singleton is doing something.\");\n    }\n}",
+        "concepts": [
+          "singleton pattern",
+          "thread safety",
+          "double-checked locking"
+        ]
+      }
+    ],
+    "expert": [
+      {
+        "id": "e1",
+        "title": "Custom ThreadPool Implementation",
+        "description": "Implement a custom thread pool with work stealing",
+        "difficulty": 9,
+        "category": "concurrency",
+        "code": "import java.util.concurrent.*;\nimport java.util.concurrent.atomic.AtomicInteger;\n\npublic class CustomThreadPool {\n    private final WorkStealingQueue<Runnable>[] queues;\n    private final Thread[] threads;\n    private final AtomicInteger index;\n    private volatile boolean isShutdown;\n    \n    @SuppressWarnings(\"unchecked\")\n    public CustomThreadPool(int nThreads) {\n        this.queues = new WorkStealingQueue[nThreads];\n        this.threads = new Thread[nThreads];\n        this.index = new AtomicInteger();\n        \n        for (int i = 0; i < nThreads; i++) {\n            queues[i] = new WorkStealingQueue<>();\n            threads[i] = new WorkerThread(i);\n            threads[i].start();\n        }\n    }\n    \n    public void submit(Runnable task) {\n        if (isShutdown) {\n            throw new RejectedExecutionException(\"ThreadPool is shutdown\");\n        }\n        int idx = index.getAndIncrement() % queues.length;\n        queues[idx].offer(task);\n    }\n    \n    public void shutdown() {\n        isShutdown = true;\n        for (Thread thread : threads) {\n            thread.interrupt();\n        }\n    }\n    \n    private class WorkerThread extends Thread {\n        private final int index;\n        \n        WorkerThread(int index) {\n            this.index = index;\n        }\n        \n        @Override\n        public void run() {\n            while (!isShutdown || !queues[index].isEmpty()) {\n                Runnable task = queues[index].poll();\n                if (task != null) {\n                    task.run();\n                } else {\n                    // Try to steal work from other queues\n                    task = stealTask();\n                    if (task != null) {\n                        task.run();\n                    } else {\n                        Thread.yield();\n                    }\n                }\n            }\n        }\n        \n        private Runnable stealTask() {\n            for (int i = 0; i < queues.length; i++) {\n                if (i != index) {\n                    Runnable task = queues[i].steal();\n                    if (task != null) {\n                        return task;\n                    }\n                }\n            }\n            return null;\n        }\n    }\n}",
+        "concepts": ["thread pools", "work stealing", "concurrent programming"]
+      },
+      {
+        "id": "e2",
+        "title": "Custom Annotation Processor",
+        "description": "Create a custom annotation processor for compile-time code generation",
+        "difficulty": 10,
+        "category": "meta-programming",
+        "code": "import javax.annotation.processing.*;\nimport javax.lang.model.element.*;\nimport javax.tools.JavaFileObject;\nimport java.io.IOException;\nimport java.io.PrintWriter;\nimport java.util.Set;\n\n@SupportedAnnotationTypes(\"com.example.Generator\")\npublic class CustomProcessor extends AbstractProcessor {\n    @Override\n    public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {\n        for (TypeElement annotation : annotations) {\n            Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(annotation);\n            \n            for (Element element : elements) {\n                if (element.getKind() != ElementKind.CLASS) {\n                    continue;\n                }\n                \n                String className = element.getSimpleName().toString();\n                String packageName = processingEnv.getElementUtils()\n                    .getPackageOf(element)\n                    .getQualifiedName()\n                    .toString();\n                \n                try {\n                    generateWrapper(packageName, className);\n                } catch (IOException e) {\n                    e.printStackTrace();\n                }\n            }\n        }\n        return true;\n    }\n    \n    private void generateWrapper(String packageName, String className) throws IOException {\n        String wrapperName = className + \"Wrapper\";\n        String qualifiedName = packageName + \".\" + wrapperName;\n        \n        JavaFileObject builderFile = processingEnv.getFiler()\n            .createSourceFile(qualifiedName);\n        \n        try (PrintWriter out = new PrintWriter(builderFile.openWriter())) {\n            out.println(\"package \" + packageName + \";\");\n            out.println();\n            out.println(\"public class \" + wrapperName + \" {\");\n            out.println(\"    private final \" + className + \" instance;\");\n            out.println();\n            out.println(\"    public \" + wrapperName + \"(\" + className + \" instance) {\");\n            out.println(\"        this.instance = instance;\");\n            out.println(\"    }\");\n            out.println();\n            out.println(\"    // Generated wrapper methods will go here\");\n            out.println(\"}\");\n        }\n    }\n}",
+        "concepts": [
+          "annotation processing",
+          "code generation",
+          "meta-programming"
+        ]
+      }
+    ]
+  }
+}

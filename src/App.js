@@ -27,6 +27,8 @@ import Sem3EJSMidterms from "./Components/Semester3/Sem3EJSMidterms.jsx";
 import Sem3JavaFinal from "./Components/Semester3/Sem3JavaFinal.jsx";
 import Sem3JavaMidTerm from "./Components/Semester3/Sem3JavaMidTerm.jsx";
 import Sem3SQLMidTerm from "./Components/Semester3/Sem3SQLMidTerm.jsx";
+import TypingPractice from "./Components/TypingPractice/TypingPractice";
+import WildfireProximityApp from "./Components/WildfireProximity/WildfireProximity.jsx";
 function AppContent() {
   const location = useLocation();
   const isDogGallery = location.pathname.includes("/dog-gallery");
@@ -61,6 +63,11 @@ function AppContent() {
           <Route path="/Sem3JavaFinal" element={<Sem3JavaFinal />} />
           <Route path="/Sem3JavaMidTerm" element={<Sem3JavaMidTerm />} />
           <Route path="/Sem3SQLMidTerm" element={<Sem3SQLMidTerm />} />
+          <Route path="/TypingPractice" element={<TypingPractice />} />
+          <Route
+            path="/wildfire-proximity"
+            element={<WildfireProximityApp />}
+          />
         </Routes>
       </div>
       {!isDogGallery && <Footer />}
