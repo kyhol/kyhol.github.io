@@ -369,7 +369,7 @@ const WildfireProximityApp = () => {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && searchWildfires()}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-base"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-base text-black placeholder:text-gray-600"
             />
           </div>
           <button
