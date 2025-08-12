@@ -176,7 +176,7 @@ const WildfireProximityApp = () => {
       ];
     }
   };
-
+  //test
   // Cache management with sessionStorage
   const getCachedData = () => {
     try {
