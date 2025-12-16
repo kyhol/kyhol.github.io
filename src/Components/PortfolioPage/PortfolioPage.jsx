@@ -32,7 +32,9 @@ const PortfolioPage = () => {
             </h1>
 
             <p className="text-xl text-gray-300 font-light max-w-lg leading-relaxed">
-              Software Developer{" "}
+              Software Developer <br />
+              **UNDER CONSTRUCTION**
+              <br /> Started December 14 2025{" "}
             </p>
 
             <div className="mt-8 flex gap-4">
