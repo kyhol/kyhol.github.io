@@ -1,42 +1,60 @@
-@keyframes swingInLeft {
-  0% {
-    transform: translateX(-100%);
+/* Base hidden states handled via Tailwind classes in JS (opacity-0, etc), 
+   but we define the active animation classes here */
+
+.animate-fade-in-up {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Desktop Only Animations */
+@media (min-width: 768px) {
+  .animate-fade-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: slideInRight 1s ease-out forwards;
+  }
+}
+
+/* Mobile Fallback (Force Slide Up even if left/right is requested) */
+@media (max-width: 767px) {
+  .animate-fade-in-left,
+  .animate-fade-in-right {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
     opacity: 0;
+    transform: translateX(-50px);
   }
-  100% {
-    transform: translateX(0);
+  to {
     opacity: 1;
+    transform: translateX(0);
   }
 }
 
-@keyframes swingInRight {
-  0% {
-    transform: translateX(100%);
+@keyframes slideInRight {
+  from {
     opacity: 0;
+    transform: translateX(50px);
   }
-  100% {
-    transform: translateX(0);
+  to {
     opacity: 1;
+    transform: translateX(0);
   }
 }
+@media (max-width: 768px) {
+  .swing-in-left,
+  .swing-in-right {
+    transform: translateY(20px) !important; /* Slide UP small amount */
+  }
 
-.swing-in-left {
-  opacity: 0;
-  transform: translateX(-100px);
-  transition: all 1s ease-out;
-  visibility: hidden; /* Start hidden */
-}
-
-.swing-in-right {
-  opacity: 0;
-  transform: translateX(100px);
-  transition: all 1s ease-out;
-  visibility: hidden; /* Start hidden */
-}
-
-.animate-swing-left,
-.animate-swing-right {
-  opacity: 1;
-  transform: translateX(0);
-  visibility: visible; /* Show when animated */
+  .animate-swing-left,
+  .animate-swing-right {
+    transform: translateY(0) !important;
+  }
 }

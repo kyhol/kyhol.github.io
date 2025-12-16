@@ -5,72 +5,71 @@ const FloatingGeometryBackground = () => {
   const [points, setPoints] = useState([]);
   const containerRef = useRef(null);
   const animationRef = useRef(null);
+  const [isInteracting, setIsInteracting] = useState(false);
 
   const OSCILLATION_RADIUS = 15;
 
-  const generatePoints = useCallback((count = 200) => {
+  // Determine point count based on screen size
+  const getPointCount = () => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth < 768 ? 50 : 150;
+    }
+    return 100;
+  };
+
+  const generatePoints = useCallback(() => {
     const container = containerRef.current;
     if (!container) return [];
 
     const rect = container.getBoundingClientRect();
-    const gridSize = Math.sqrt(count);
-    const cellWidth = rect.width / gridSize;
-    const cellHeight = rect.height / gridSize;
+    const width = rect.width;
+    const height = rect.height;
 
-    return Array.from({ length: count }, (_, i) => {
-      const row = Math.floor(i / gridSize);
-      const col = i % gridSize;
+    // --- CHANGED LOGIC START ---
+    // Instead of a flat loop, we calculate rows/cols based on Aspect Ratio
+    // to ensure the grid covers the entire height.
+    const targetCount = getPointCount();
+    const ratio = width / height;
 
-      // Add random offset within each grid cell
-      const baseX = col * cellWidth;
-      const baseY = row * cellHeight;
-      const x = baseX + Math.random() * cellWidth * 0.8;
-      const y = baseY + Math.random() * cellHeight * 0.8;
+    // Calculate rows and columns to fit the aspect ratio
+    // If ratio is > 1 (landscape), we have more cols than rows.
+    const rows = Math.ceil(Math.sqrt(targetCount / ratio));
+    const cols = Math.ceil(targetCount / rows);
 
-      return {
-        id: i,
-        x,
-        y,
-        speedX: (Math.random() - 0.5) * 0.3,
-        speedY: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 2 + 1,
-        baseX: x,
-        baseY: y,
-        phase: Math.random() * Math.PI * 2,
-      };
-    });
-  }, []);
+    const cellWidth = width / cols;
+    const cellHeight = height / rows;
 
-  const updatePoints = useCallback(() => {
-    setPoints((prevPoints) => {
-      const container = containerRef.current;
-      if (!container) return prevPoints;
+    const newPoints = [];
+    let idCounter = 0;
 
-      const rect = container.getBoundingClientRect();
-      const time = Date.now() / 2000;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        // Calculate base position for this cell
+        const baseX = c * cellWidth;
+        const baseY = r * cellHeight;
 
-      return prevPoints.map((point) => {
-        // Oscillating motion around base position
-        const oscillationRadius = 15;
-        const newX =
-          point.baseX + Math.cos(point.phase + time) * oscillationRadius;
-        const newY =
-          point.baseY + Math.sin(point.phase + time * 1.5) * oscillationRadius;
+        // Add random offset, but keep it within bounds so it doesn't fly off screen
+        const x = baseX + Math.random() * cellWidth * 0.8 + cellWidth * 0.1;
+        const y = baseY + Math.random() * cellHeight * 0.8 + cellHeight * 0.1;
 
-        return {
-          ...point,
-          x: newX,
-          y: newY,
-        };
-      });
-    });
-
-    animationRef.current = requestAnimationFrame(updatePoints);
+        newPoints.push({
+          id: idCounter++,
+          x,
+          y,
+          size: Math.random() * 2 + 1,
+          baseX: x,
+          baseY: y,
+          phase: Math.random() * Math.PI * 2,
+        });
+      }
+    }
+    return newPoints;
+    // --- CHANGED LOGIC END ---
   }, []);
 
   const findNearbyPoints = useCallback(
     (x, y) => {
-      const interactionRadius = 200;
+      const interactionRadius = window.innerWidth < 768 ? 100 : 200;
       return points
         .map((point) => {
           const distance = Math.sqrt(
@@ -86,9 +85,19 @@ const FloatingGeometryBackground = () => {
   );
 
   useEffect(() => {
+    // Add a small delay to resize to let the container finish layout
+    let timeoutId;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => setPoints(generatePoints()), 100);
+    };
+
+    window.addEventListener("resize", handleResize);
     setPoints(generatePoints());
+
     return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
     };
   }, [generatePoints]);
 
@@ -121,44 +130,55 @@ const FloatingGeometryBackground = () => {
     };
   }, []);
 
-  const [isMouseInContainer, setIsMouseInContainer] = useState(false);
-
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      setMousePos({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      });
+    const handleInteraction = (clientX, clientY) => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      const rect = container.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+
+      // Check boundaries to ensure we are actually over the section
+      if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+        setIsInteracting(true);
+        setMousePos({ x, y });
+      } else {
+        setIsInteracting(false);
+      }
     };
 
-    const handleMouseEnter = () => setIsMouseInContainer(true);
-    const handleMouseLeave = () => setIsMouseInContainer(false);
+    const handleMouseMove = (e) => handleInteraction(e.clientX, e.clientY);
+    const handleTouchMove = (e) => {
+      if (e.touches.length > 0) {
+        handleInteraction(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("mousemove", handleMouseMove);
-      container.addEventListener("mouseenter", handleMouseEnter);
-      container.addEventListener("mouseleave", handleMouseLeave);
-      return () => {
-        container.removeEventListener("mousemove", handleMouseMove);
-        container.removeEventListener("mouseenter", handleMouseEnter);
-        container.removeEventListener("mouseleave", handleMouseLeave);
-      };
-    }
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchstart", handleTouchMove, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchstart", handleTouchMove);
+      window.removeEventListener("touchmove", handleTouchMove);
+    };
   }, []);
 
-  const nearbyPoints = isMouseInContainer
+  const nearbyPoints = isInteracting
     ? findNearbyPoints(mousePos.x, mousePos.y)
     : [];
 
   return (
-    <div ref={containerRef} className="absolute inset-0 bg-gray-900">
+    <div
+      ref={containerRef}
+      className="absolute inset-0 bg-gray-900 overflow-hidden pointer-events-none"
+    >
       <svg className="w-full h-full">
         <defs>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+            <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
             <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
@@ -166,23 +186,28 @@ const FloatingGeometryBackground = () => {
           </filter>
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#4f46e5" stopOpacity="1" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#6366f1" stopOpacity="0.1" />
           </linearGradient>
         </defs>
 
-        {points.map((point, idx) => {
-          const isNearby = nearbyPoints.some((p) => p.id === point.id);
-          const distanceToMouse = Math.sqrt(
-            Math.pow(point.x - mousePos.x, 2) +
-              Math.pow(point.y - mousePos.y, 2)
-          );
-          const opacity = isNearby
-            ? Math.max(0.2, 1 - distanceToMouse / 300)
-            : 0.2;
+        {points.map((point) => {
+          let opacity = 0.3;
+          let isNearby = false;
+
+          if (isInteracting) {
+            isNearby = nearbyPoints.some((p) => p.id === point.id);
+            if (isNearby) {
+              const distanceToMouse = Math.sqrt(
+                Math.pow(point.x - mousePos.x, 2) +
+                  Math.pow(point.y - mousePos.y, 2)
+              );
+              opacity = Math.max(0.3, 1 - distanceToMouse / 250);
+            }
+          }
 
           return (
             <React.Fragment key={point.id}>
-              {isNearby && idx > 0 && (
+              {isNearby && (
                 <line
                   x1={mousePos.x}
                   y1={mousePos.y}
@@ -190,9 +215,8 @@ const FloatingGeometryBackground = () => {
                   y2={point.y}
                   stroke="url(#lineGradient)"
                   strokeWidth="1"
-                  strokeDasharray="3,3"
-                  className="transition-opacity duration-300"
-                  opacity={opacity * 1.5}
+                  className="transition-opacity duration-75"
+                  opacity={opacity}
                 />
               )}
               <circle
@@ -218,7 +242,7 @@ const FloatingGeometryBackground = () => {
                 x2={point.x}
                 y2={point.y}
                 stroke="#4f46e5"
-                strokeWidth="1"
+                strokeWidth="0.5"
                 className="opacity-20"
               />
             )

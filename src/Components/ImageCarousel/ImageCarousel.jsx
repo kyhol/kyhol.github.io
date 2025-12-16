@@ -27,7 +27,7 @@ const Carousel = () => {
   return (
     <div>
       <Button className="returnToPortfolioButton" />
-      <div className="container">
+      <div className="CarouselContainer">
         {images.map((src, i) => (
           <div
             key={i}

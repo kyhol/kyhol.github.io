@@ -1,57 +1,41 @@
+/* App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html,
 body {
-  height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
   font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures footer sticks to the bottom */
+  min-height: 100vh;
 }
 
+/* --- THE FIX IS HERE ---
 .main-content {
   flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Centers content vertically */
-  padding: 20px;
+  /* We removed display:flex/justify/align here so it doesn't force vertical centering */
+/* width: 100%;
   margin-top: 3rem;
   background-color: #282828;
   color: whitesmoke;
-}
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-/*
-  2. Remove default margin
-*/
-* {
-  margin: 0;
-}
-/*
-  Typographic tweaks!
-  3. Add accessible line-height
-  4. Improve text rendering
-*/
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-/*
-  5. Improve media defaults
-*/
+} */
+
+/* Standard Resets */
 img,
 picture,
 video,
@@ -60,18 +44,14 @@ svg {
   display: block;
   max-width: 100%;
 }
-/*
-  6. Remove built-in form typography styles
-*/
+
 input,
 button,
 textarea,
 select {
   font: inherit;
 }
-/*
-  7. Avoid text overflows
-*/
+
 p,
 h1,
 h2,
@@ -81,10 +61,37 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
-/*
-  8. Create a root stacking context
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* src/App.css */
+
+.App {
+  text-align: center;
+  /* Ensure global font colors are set if needed */
+  color: white;
+  background-color: #111827;
+}
+
+/* 1. Fullscreen Content (Home & Special Pages)
+  The content starts at y=0. Navbar floats on top. 
 */
-#root,
-#__next {
-  isolation: isolate;
+.fullscreen-content {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 0;
+  position: relative;
+}
+
+/* 2. Main Content (Standard Pages)
+  The content is pushed down so the Navbar doesn't cover it.
+*/
+.main-content {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 100px; /* Push content down below the 80px navbar */
+  background-color: #111827;
+  position: relative;
 }

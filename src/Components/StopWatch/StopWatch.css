@@ -11,7 +11,7 @@ body {
   color: hsl(0, 0%, 25%);
 }
 
-#container {
+#StopWatchContainer {
   display: flex;
   flex-direction: column;
   align-items: center;

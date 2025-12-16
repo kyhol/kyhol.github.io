@@ -32,7 +32,7 @@ const GroceryList = () => {
   return (
     <div>
       <Button className="returnToPortfolioButton" />
-      <div className="container">
+      <div className="CalcContainer">
         <div className="groceries">
           <h1 style={{ textAlign: "center" }}>Grocery List</h1>
           <div style={{ textAlign: "center" }}>

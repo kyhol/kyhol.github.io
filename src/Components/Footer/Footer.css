@@ -1,114 +1,141 @@
 .footer {
-  background-color: #2c3e50;
+  background-color: #1f2937; /* Matches your dark theme (gray-800) */
   color: #ecf0f1;
-  padding: 2rem 0 4rem; /* Increased bottom padding */
-  font-family: Arial, sans-serif;
-  position: relative; /* Added for absolute positioning context */
-  height: 12rem;
-  width: 100vw;
+  padding: 3rem 0 2rem;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
+
+  /* Creates a clean 3-column layout */
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 0 2rem;
+  align-items: center; /* Vertically centers everything */
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* LEFT SECTION: Name & Title */
+.footer-left {
+  flex: 1; /* Takes up equal space */
+  text-align: left;
 }
 
 .footer-left h3 {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  color: whitesmoke;
 }
 
 .footer-left p {
-  font-size: 1rem;
-  opacity: 0.8;
+  font-size: 0.95rem;
+  color: #9ca3af; /* Gray-400 */
 }
 
-.footer-right {
+/* CENTER SECTION: Social Links */
+.footer-center {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.footer-contact {
-  margin-bottom: 1rem;
-}
-
-.footer-contact p {
-  font-size: 0.9rem;
+  justify-content: center;
 }
 
 .footer-social-links {
   display: flex;
-  gap: 1rem;
-  margin-right: 10rem;
+  gap: 1.5rem;
+  align-items: center;
+  /* Removed the margin-right: 10rem causing the issue */
 }
 
 .social-link {
   display: flex;
   align-items: center;
-  color: #ecf0f1;
+  gap: 0.5rem;
+  color: #d1d5db;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .social-link:hover {
-  opacity: 0.7;
+  color: #60a5fa; /* Blue hover */
+  transform: translateY(-2px);
 }
 
 .social-link img {
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5rem;
+  width: 20px;
+  height: 20px;
 }
 
-.footer-bottom {
-  margin-top: 2rem;
-  text-align: center;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(236, 240, 241, 0.1);
-}
-
-.footer-copyright {
-  font-size: 0.8rem;
-  opacity: 0.6;
+/* RIGHT SECTION: Signature */
+.footer-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .footer-signature {
-  position: absolute;
-  bottom: 1rem;
-  right: 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  /* Removed absolute positioning so it sits naturally */
+  font-size: 1.8rem;
+  color: whitesmoke;
+  transform: rotate(-5deg); /* Slight tilt for style */
 }
+
 .cedarville-cursive-regular {
   font-family: "Cedarville Cursive", cursive;
   font-weight: 400;
-  font-style: normal;
-  font-size: 2.5rem;
 }
 
+.default-font {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  color: #60a5fa; /* Blue brackets */
+  font-weight: bold;
+}
+
+/* COPYRIGHT BOTTOM */
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: #6b7280; /* Gray-500 */
+}
+
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-left,
+  .footer-right,
+  .footer-center {
+    flex: auto;
+    width: 100%;
+    justify-content: center;
     text-align: center;
   }
 
-  .footer-right {
-    align-items: center;
-    margin-top: 1rem;
-  }
-
-  .footer-contact {
-    margin-bottom: 0.5rem;
+  .footer-social-links {
+    justify-content: center;
   }
 
   .footer-signature {
-    position: static;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    transform: rotate(0deg); /* Remove tilt on mobile for cleaner look */
   }
 }

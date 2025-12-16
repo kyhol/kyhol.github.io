@@ -63,7 +63,7 @@ const Stopwatch = () => {
   return (
     <div>
       <Button className="returnToPortfolioButton" />
-      <div id="container">
+      <div id="StopWatchContainer">
         <h1 id="myh1">Stopwatch</h1>
         <div id="display">{displayTime}</div>
         <div id="controls">

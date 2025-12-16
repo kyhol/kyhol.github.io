@@ -1,3 +1,16 @@
+/* --- GLOBAL RESET (Essential for full-width layouts) --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden; /* Prevents the "white bar" caused by horizontal scrolling */
+  width: 100%;
+}
+
+/* --- NAVBAR STYLES --- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -5,7 +18,9 @@
   padding: 0 24px;
   background-color: #1a1a1a;
   color: white;
-  width: 100vw;
+
+  /* FIXED: Use 100% instead of 100vw to avoid scrollbar width issues */
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -14,206 +29,23 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-left {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-name {
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-}
-
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.navbar-right a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 16px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.navbar-right a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-}
-
-.dropdown {
-  position: relative;
-}
-
-/* Add invisible bridge to prevent dropdown from closing */
-.dropdown::after {
-  content: "";
-  position: absolute;
-  height: 20px;
-  width: 100%;
-  bottom: -20px;
-  left: 0;
-}
-
-.dropbtn {
-  background-color: transparent;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 10px 16px;
-  width: 100%;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.dropbtn::after {
-  content: "▾";
-  font-size: 14px;
-  margin-left: 4px;
-  transition: transform 0.3s ease;
-}
-
-.dropdown:hover .dropbtn::after {
-  transform: rotate(180deg);
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 200px;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 1;
-  top: calc(100% + 10px);
-  left: 0;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-}
-
-/* Add padding to top of dropdown to create hoverable area */
-.dropdown-content::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 0;
-  right: 0;
-  height: 10px;
-}
-
-.semester-category {
-  position: relative;
-}
-
-.semester-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  color: #333;
-  font-weight: 500;
-  cursor: pointer;
-  background-color: white;
-  transition: all 0.2s ease;
-}
-
-.semester-title::after {
-  content: "▸";
-  font-size: 14px;
-  transition: transform 0.2s ease;
-}
-
-.semester-category:hover .semester-title::after {
-  transform: rotate(90deg);
-}
-
-.semester-projects {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  background-color: white;
-  min-width: 220px;
-  border-radius: 8px;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.semester-category:hover .semester-projects {
-  display: block;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.semester-projects a {
-  color: #333 !important;
-  padding: 10px 16px !important;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  transition: all 0.2s ease !important;
-}
-
-.semester-projects a:hover {
-  background-color: #f5f5f5 !important;
-  color: #000 !important;
-  padding-left: 20px !important;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dropdown:hover .dropbtn {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-}
-
-/* Hide empty semester projects */
-.semester-projects:empty {
-  display: none;
-}
-
-/* Add subtle dividers between items */
-.semester-title {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.semester-projects a:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.navbar {
+.navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
-  background-color: #1a1a1a;
-  color: white;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  height: 64px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+}
+
+.navbar-name,
+.kyleHollett {
+  white-space: nowrap;
 }
 
 .navbar-name {
@@ -224,6 +56,7 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   padding: 0 4px;
 }
+
 .kyleHollett {
   font-size: 40px;
   font-family: "Cedarville Cursive", cursive;
@@ -231,7 +64,9 @@
   color: #ffffff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   padding: 0 4px;
+  text-decoration: none;
 }
+
 .navbar-right {
   display: flex;
   align-items: center;
@@ -251,18 +86,9 @@
   border-radius: 6px;
 }
 
+/* Dropdown Base Styles */
 .dropdown {
   position: relative;
-}
-
-/* Add invisible bridge to prevent dropdown from closing */
-.dropdown::after {
-  content: "";
-  position: absolute;
-  height: 20px;
-  width: 100%;
-  bottom: -20px;
-  left: 0;
 }
 
 .dropbtn {
@@ -290,6 +116,7 @@
   transform: rotate(180deg);
 }
 
+/* Desktop Dropdown Content */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -303,17 +130,13 @@
   opacity: 0;
   transform: translateY(-10px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: visible; /* Changed from hidden to visible */
+  overflow: visible;
 }
 
-/* Add padding to top of dropdown to create hoverable area */
-.dropdown-content::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 0;
-  right: 0;
-  height: 10px;
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .semester-category {
@@ -334,20 +157,7 @@
   width: 100%;
 }
 
-.semester-title::after {
-  content: "▸";
-  font-size: 14px;
-  transition: transform 0.2s ease;
-}
-
-.semester-category:hover .semester-title::after {
-  transform: rotate(90deg);
-}
-
-.semester-category:hover .semester-title {
-  background-color: #f5f5f5;
-}
-
+/* Desktop Side Flyout for Semesters */
 .semester-projects {
   display: none;
   position: absolute;
@@ -362,16 +172,6 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Add padding to left of submenu to create hoverable area */
-.semester-projects::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -10px;
-  bottom: 0;
-  width: 10px;
-}
-
 .semester-category:hover > .semester-projects {
   display: block;
   opacity: 1;
@@ -380,11 +180,8 @@
 
 .semester-projects a {
   color: #333 !important;
-  padding: 10px 16px !important;
   display: flex;
   align-items: center;
-  text-decoration: none;
-  transition: all 0.2s ease !important;
   white-space: nowrap;
 }
 
@@ -394,27 +191,487 @@
   padding-left: 20px !important;
 }
 
-.dropdown:hover > .dropdown-content {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.dropdown:hover .dropbtn {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-}
-
-/* Hide empty semester projects */
-.semester-projects:empty {
+/* Hide Hamburger by default on Desktop */
+.menu-icon {
   display: none;
 }
 
-/* Add subtle dividers between items */
-.semester-title {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+/* --- MOBILE STYLES (Screen size < 768px) --- */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    z-index: 1001;
+    padding-right: 10px; /* Add some space from the edge */
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .bar.open:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .bar.open:nth-child(2) {
+    opacity: 0;
+  }
+  .bar.open:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .navbar-right {
+    position: fixed;
+    top: 64px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 64px);
+    background-color: #1a1a1a;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    transition: 0.3s ease-in-out;
+    overflow-y: auto;
+    gap: 0;
+  }
+
+  .navbar-right.active {
+    left: 0;
+  }
+
+  .navbar-right a,
+  .dropbtn {
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 18px;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    position: static;
+    display: block;
+    width: 100%;
+    box-shadow: none;
+    background-color: #2a2a2a;
+    transform: none;
+    opacity: 1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .dropdown:hover .dropdown-content,
+  .dropdown:active .dropdown-content,
+  .dropdown:focus-within .dropdown-content {
+    max-height: 1000px;
+    display: block;
+  }
+
+  .semester-projects {
+    position: static;
+    display: block;
+    width: 100%;
+    box-shadow: none;
+    transform: none;
+    background-color: #333;
+    opacity: 1;
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 15px;
+  }
+
+  .semester-category:hover .semester-projects,
+  .semester-category:active .semester-projects {
+    display: block;
+    max-height: 500px;
+  }
+
+  .semester-title {
+    background-color: #2a2a2a;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .semester-projects a {
+    color: #ddd !important;
+    padding: 12px 16px !important;
+  }
+
+  .semester-projects a:hover {
+    background-color: #444 !important;
+    color: white !important;
+  }
+}
+/* Navbar.css */
+
+/* 1. Position the navbar absolutely over the app content */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Adjust height as needed */
+  background: transparent; /* No background color */
+  z-index: 50; /* Ensure it sits above the FloatingGeometryBackground */
+
+  /* CRITICAL: Allows clicks to pass through empty spaces to the map */
+  pointer-events: none;
 }
 
-.semester-projects a:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+.navbar-container {
+  display: flex;
+  justify-content: center; /* Centers the links (navbar-right) */
+  align-items: center;
+  height: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative; /* Needed for absolute positioning of the logo */
+}
+
+/* 2. The Angled Logo */
+.navbar-left {
+  position: absolute; /* Take out of flex flow */
+  left: 40px; /* Distance from left edge */
+  top: 30px; /* Distance from top */
+  pointer-events: auto; /* Re-enable clicks for the logo */
+}
+
+.navbar-name {
+  color: #fff;
+  font-size: 2rem; /* Make it slightly larger */
+  text-decoration: none;
+
+  /* The Tilt Effect */
+  transform: rotate(-10deg);
+  transition: transform 0.3s ease;
+}
+
+.navbar-name:hover {
+  transform: rotate(0deg) scale(1.1); /* Straighten and pop on hover */
+  text-shadow: 0 0 10px rgba(79, 70, 229, 0.8);
+}
+
+.kyleHollett {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.default-font {
+  color: #6366f1; /* Indigo color for the < > brackets */
+  font-weight: bold;
+}
+
+/* 3. Centered Links */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Space between links */
+  pointer-events: auto; /* Re-enable clicks for links */
+}
+
+/* Link Styling to stand out against the map */
+.navbar-right a,
+.dropbtn {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.2); /* Subtle backing for readability */
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-right a:hover,
+.dropdown:hover .dropbtn {
+  background: rgba(99, 102, 241, 0.3); /* Indigo tint on hover */
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+  display: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 960px) {
+  .navbar-container {
+    justify-content: flex-end; /* Move hamburger to right on mobile */
+  }
+
+  .navbar-left {
+    left: 20px;
+    top: 20px;
+  }
+
+  .navbar-name {
+    font-size: 1.5rem;
+  }
+
+  .menu-icon {
+    display: block;
+    margin-right: 20px;
+  }
+
+  .navbar-right {
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 0;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(
+      17,
+      24,
+      39,
+      0.95
+    ); /* Dark background for mobile menu */
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-right.active {
+    left: 0;
+    opacity: 1;
+  }
+}
+/* src/Components/Navbar/Navbar.css */
+
+/* 1. Position the navbar absolutely over the content */
+.navbar {
+  position: absolute; /* Floats over the background */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px; /* Standard height */
+  background: transparent; /* See-through */
+  z-index: 50; /* Above the background points */
+  pointer-events: none; /* Let clicks pass through empty space to the map */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center; /* Centers the navigation links */
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative; /* Needed for absolute positioning of the logo */
+}
+
+/* 2. The Angled Logo on the Left */
+.navbar-left {
+  position: absolute; /* Removed from the center flex flow */
+  left: 40px; /* Distance from left edge */
+  top: 25px;
+  pointer-events: auto; /* Re-enable clicks for the logo */
+  z-index: 51;
+}
+
+.navbar-name {
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+  font-family: "Cedarville Cursive", cursive; /* Ensure you have this font imported */
+
+  /* The Tilt Effect */
+  transform: rotate(-10deg);
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.navbar-name:hover {
+  transform: rotate(0deg) scale(1.1); /* Straighten on hover */
+  text-shadow: 0 0 10px rgba(79, 70, 229, 0.8);
+}
+
+.kyleHollett {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.default-font {
+  color: #6366f1; /* Indigo color for < > */
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/* 3. Centered Links */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  pointer-events: auto; /* Re-enable clicks for links */
+}
+
+/* Link Styling */
+.navbar-right a,
+.dropbtn {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+
+  /* Glassmorphism effect for readability over points */
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-right a:hover,
+.dropdown:hover .dropbtn {
+  background: rgba(99, 102, 241, 0.4); /* Indigo tint */
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(10px);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  border-radius: 12px;
+  padding: 10px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.semester-category {
+  margin-bottom: 10px;
+}
+
+.semester-title {
+  display: block;
+  color: #6366f1;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 5px;
+}
+
+.semester-projects a {
+  display: block;
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.semester-projects a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: none; /* Reset the bounce for dropdown items */
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+  display: none;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive */
+@media screen and (max-width: 960px) {
+  .navbar-container {
+    justify-content: flex-end; /* Push hamburger to right */
+  }
+
+  .navbar-left {
+    left: 20px; /* Adjust for smaller screens */
+    top: 20px;
+  }
+
+  .navbar-name {
+    font-size: 1.5rem;
+  }
+
+  .menu-icon {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .navbar-right {
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 0;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(17, 24, 39, 0.98);
+    transition: all 0.5s ease;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-right.active {
+    left: 0;
+    opacity: 1;
+  }
+
+  .navbar-right a,
+  .dropbtn {
+    background: transparent;
+    border: none;
+  }
 }

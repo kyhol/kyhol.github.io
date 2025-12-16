@@ -1,48 +1,56 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ScrollAnimation.css";
 
-const ScrollAnimation = ({ children, direction, className }) => {
+const ScrollAnimation = ({ children, direction = "up", className }) => {
   const elementRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-50px", // Only trigger when element is 50px into viewport
-      threshold: 0.1, // Trigger earlier
-    };
-
-    const handleIntersection = (entries) => {
-      entries.forEach((entry) => {
-        // Only add animation class if element is entering viewport from below
-        if (entry.isIntersecting && entry.boundingClientRect.top > 0) {
-          entry.target.classList.add(
-            direction === "left" ? "animate-swing-left" : "animate-swing-right"
-          );
-        }
-      });
-    };
-
     const observer = new IntersectionObserver(
-      handleIntersection,
-      observerOptions
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            // Once visible, stop observing so it doesn't re-animate
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before bottom
+      }
     );
 
-    // Small delay to ensure initial state is set
-    setTimeout(() => {
-      if (elementRef.current) {
-        observer.observe(elementRef.current);
-      }
-    }, 100);
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
 
     return () => observer.disconnect();
-  }, [direction]);
+  }, []);
+
+  // Determine animation class based on direction and visibility
+  // On mobile (default), we force 'up' to prevent side-scroll issues
+  // On desktop (md:), we respect the specific direction
+  const getAnimationClass = () => {
+    if (!isVisible) return "opacity-0 translate-y-10"; // Hidden state
+
+    switch (direction) {
+      case "left":
+        return "animate-fade-in-left";
+      case "right":
+        return "animate-fade-in-right";
+      default:
+        return "animate-fade-in-up";
+    }
+  };
 
   return (
     <div
       ref={elementRef}
-      className={`${
-        direction === "left" ? "swing-in-left" : "swing-in-right"
-      } ${className || ""}`}
+      className={`transition-all duration-1000 ease-out ${getAnimationClass()} ${
+        className || ""
+      }`}
     >
       {children}
     </div>

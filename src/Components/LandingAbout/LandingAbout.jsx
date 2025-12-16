@@ -1,3 +1,4 @@
+/* LandingAbout.js */
 import React from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -10,14 +11,18 @@ import PortfolioPage from "../PortfolioPage/PortfolioPage";
 
 const LandingAbout = () => {
   return (
-    <div className="mx-auto p-6">
-      {/* Hero Section with Dark Background */}
+    // ADDED: flex flex-col items-center
+    <div className="mx-auto p-0 md:p-6 w-full max-w-[100vw] overflow-hidden flex flex-col items-center">
+      {/* Hero Section */}
       <PortfolioPage />
+
       <PicLeftTextRight />
+
       {/* About Me Card */}
       <AboutDescription />
+
       {/* Social Links Footer */}
-      <div className="aboutLogoContainer flex justify-center items-center space-x-4 mt-6">
+      <div className="aboutLogoContainer flex justify-center items-center space-x-4 mt-6 pb-6">
         <FaArrowRight className="text-orange-600 mr-2" />
         <a
           href="http://github.com/kyhol"

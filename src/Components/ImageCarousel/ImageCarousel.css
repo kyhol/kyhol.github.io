@@ -1,4 +1,4 @@
-.container {
+.CarouselContainer {
   border: 1px solid black;
   width: 70%;
   height: 500px;
@@ -101,7 +101,7 @@
 }
 
 @media (max-width: 768px) {
-  .container {
+  .CarouselContainer {
     width: 100%;
   }
 
