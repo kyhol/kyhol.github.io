@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kyle Hollett - Resume</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+        background-color: #fff;
+      }
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        color: #2c3e50;
+        border-bottom: 2px solid #2c3e50;
+        padding-bottom: 10px;
+      }
+      .contact-info {
+        margin-bottom: 20px;
+        font-size: 0.95em;
+      }
+      .contact-info a {
+        color: #2980b9;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+      h2 {
+        font-size: 1.2em;
+        text-transform: uppercase;
+        color: #2c3e50;
+        border-bottom: 1px solid #ccc;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+      }
+      .job-header,
+      .school-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .job-sub {
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+      .job-sub a {
+        color: #2980b9;
+        text-decoration: none;
+      }
+      ul {
+        margin-top: 5px;
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 6px;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .skill-category {
+        font-weight: bold;
+      }
+      .award-item,
+      .volunteer-item {
+        margin-bottom: 15px;
+      }
+      .date {
+        color: #666;
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Kyle Hollett</h1>
+      <div class="contact-info">
+        +1 (709) 327-5815 |
+        <a href="mailto:kyle.hollett@keyin.com">kyle.hollett@keyin.com</a><br />
+        <a href="https://linkedin.com/in/kyle-hollett-8558842a8"
+          >linkedin.com/in/kyle-hollett-8558842a8</a
+        >
+        | <a href="https://github.com/kyhol">github.com/kyhol</a> |
+        <a href="https://kyhol.github.io">kyhol.github.io</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p>
+        Motivated software developer with hands-on experience in full-stack
+        development, AGILE methodologies, and modern technology stacks including
+        React.js, Node.js, and REST APIs. Proven track record of delivering
+        impactful solutions through collaborative team environments and
+        quality-focused development practices. Recent graduate eager to
+        contribute to meaningful projects that create positive impact while
+        continuing to grow technical expertise.
+      </p>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-header">
+          <span>Full Stack Software Developer Intern</span>
+          <span class="date">March 2025 - November 2025</span>
+        </div>
+        <div class="job-sub">
+          Verisult, SkillMatchAI App |
+          <a href="https://skillmatchai.ca/">skillmatchai.ca</a> | St. John's,
+          NL
+        </div>
+        <ul>
+          <li>
+            Developed comprehensive backend system using Python and FastAPI with
+            REST API architecture, supporting 300+ users with secure JWT OAuth2
+            authentication.
+          </li>
+          <li>
+            Engineered AI-driven workflows using SerpApi to provide personalized
+            career suggestions, automated resume generation, and AI-guided
+            course recommendations based on parsed user profiles.
+          </li>
+          <li>
+            Implemented an AI-integrated PDF parser for intelligent profile
+            auto-completion and designed high-fidelity PDF generation features,
+            ensuring seamless visual transition and styling from web view to
+            saved document.
+          </li>
+          <li>
+            Collaborated with team using Git for version control and
+            participated in code reviews following AGILE practices.
+          </li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span>Lead Student Developer</span>
+          <span class="date">March 2024 - February 2025</span>
+        </div>
+        <div class="job-sub">Data Farms | St. John's, NL</div>
+        <ul>
+          <li>
+            Led development team of 4 students in building agricultural data
+            visualization systems using React, TypeScript, and Plotly.js with
+            responsive design principles.
+          </li>
+          <li>
+            Transformed JSON and XML datasets into interactive dashboards
+            enabling data-driven decision making for agricultural stakeholders.
+          </li>
+          <li>
+            Integrated Canadian Environmental API data sources to create
+            time-series visualizations with custom filtering capabilities.
+          </li>
+          <li>
+            Coordinated project timelines, facilitated code reviews, and
+            implemented AGILE methodology for team collaboration.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Key Projects</h2>
+
+      <div class="job">
+        <div class="job-header">
+          <span>Wildfire Proximity App</span>
+        </div>
+        <div class="job-sub">
+          Real-time wildfire tracking for Newfoundland & Labrador |
+          <a href="https://wildfireprox.netlify.app/"
+            >wildfireprox.netlify.app</a
+          >
+        </div>
+        <ul>
+          <li>
+            Built real-time tracking system integrating multiple ArcGIS REST
+            APIs providing live fire data and satellite thermal hotspot
+            detection for public safety applications.
+          </li>
+          <li>
+            Developed interactive mapping interface using React-Leaflet with
+            custom algorithms and implemented geocoding with automatic data
+            refresh.
+          </li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span
+            >RPG Adventure Game - Client-Server Architecture (Team Lead)</span
+          >
+        </div>
+        <div class="job-sub">
+          Complete desktop RPG with database persistence - Led team of 5
+          developers
+        </div>
+        <ul>
+          <li>
+            Architected full-stack gaming platform with Java Swing desktop
+            client and Spring Boot REST API backend.
+          </li>
+          <li>
+            Built comprehensive REST API managing game entities with
+            JPA/Hibernate for data persistence and SQL database management.
+          </li>
+          <li>
+            Facilitated AGILE development practices including daily standups,
+            sprint planning, and retrospectives.
+          </li>
+          <li>
+            Created technical documentation and onboarded team members to ensure
+            consistent code quality and collaborative workflow.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div>
+          <span class="skill-category">Languages:</span> JavaScript, TypeScript,
+          Python, Java, SQL, CSS
+        </div>
+        <div>
+          <span class="skill-category">Frameworks & Libraries:</span> React.js,
+          Node.js, FastAPI, Spring Boot
+        </div>
+        <div>
+          <span class="skill-category">Tools & Platforms:</span> Git, Jira,
+          PostgreSQL, MongoDB, Docker, Postman
+        </div>
+        <div>
+          <span class="skill-category">Methodologies:</span> AGILE, REST APIs,
+          DevOps, Quality Assurance
+        </div>
+        <div>
+          <span class="skill-category">Cloud Services:</span> AWS (Cloud
+          Foundations, Developing, Architecting)
+        </div>
+        <div>
+          <span class="skill-category">Core Competencies:</span> Full Stack
+          Development, API Development, Database Management, Authentication
+          Systems (JWT, OAuth2)
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="job-header">
+        <span>Honors Diploma in Software Development</span>
+        <span class="date">January 2024 - April 2025</span>
+      </div>
+      <div class="job-sub">Keyin College - St. John's, NL</div>
+    </section>
+
+    <section>
+      <h2>Awards & Recognition</h2>
+      <div class="award-item">
+        <strong>Overall Excellence Award (May 2025)</strong><br />
+        Recognized for outstanding professionalism, active participation,
+        exemplary attendance, and exceptional suitability to the software
+        development program.
+      </div>
+      <div class="award-item">
+        <strong>Beta Testing Competition Winner (December 2024)</strong><br />
+        First place in Keyin College quality assurance and beta testing
+        competition.
+      </div>
+    </section>
+
+    <section>
+      <h2>Volunteer Experience</h2>
+
+      <div class="volunteer-item">
+        <div class="job-header">
+          <span>Volunteer</span>
+          <span class="date">October - November 2025</span>
+        </div>
+        <div class="job-sub">
+          Innovation Week 2025 and NL Health Innovation Summit | St. John's, NL
+        </div>
+        <ul>
+          <li>
+            Collaborated with healthcare innovators, tech professionals, and
+            entrepreneurs to support conference operations.
+          </li>
+          <li>
+            Engaged with industry leaders to explore career pathways and
+            represented the post-secondary program professionally.
+          </li>
+        </ul>
+      </div>
+
+      <div class="volunteer-item">
+        <div class="job-header">
+          <span>Volunteer</span>
+          <span class="date">Ongoing</span>
+        </div>
+        <div class="job-sub">The Wellness Collective | St. John's, NL</div>
+        <ul>
+          <li>
+            Support community wellness initiatives through sustainable urban
+            agriculture and therapeutic gardening programs.
+          </li>
+          <li>
+            Collaborate with team members to maintain operations aligned with
+            community wellness objectives.
+          </li>
+        </ul>
+      </div>
+    </section>
+  </body>
+</html>

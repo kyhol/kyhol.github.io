@@ -1,19 +1,21 @@
 import React from "react";
+// Import the background here since it is exclusive to this page
 import GoldenSpiralBackground from "../Animations/FloatingGeometryBackground";
 import ProfilePic from "../../Assets/Profile/HeadShot2.svg";
+import { Link } from "react-router-dom"; // Using Link is faster than href for internal navigation
 
 const PortfolioPage = () => {
   return (
     <div className="relative w-full min-h-screen bg-gray-900 flex flex-col justify-center overflow-hidden">
-      {/* 1. Background Layer (Full Screen, Z=0) */}
+      {/* 1. Background Layer (Exclusive to this page) */}
       <div className="absolute inset-0 z-0">
         <GoldenSpiralBackground />
       </div>
 
-      {/* 2. Content Layer (Z=10) */}
-      {/* Added pt-24 to push text below the transparent navbar */}
+      {/* 2. Content Layer */}
       <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center pt-24">
         <div className="w-full max-w-4xl flex flex-col md:flex-row items-center gap-12 mt-10 md:mt-0">
+          {/* Left Column: Text & Profile */}
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up">
             {/* Profile Picture */}
             <div className="relative group mb-8">
@@ -33,19 +35,22 @@ const PortfolioPage = () => {
 
             <p className="text-xl text-gray-300 font-light max-w-lg leading-relaxed">
               Software Developer <br />
-              **UNDER CONSTRUCTION**
-              <br /> Started December 14 2025{" "}
+              <span className="font-bold text-yellow-500">
+                **UNDER CONSTRUCTION**
+              </span>
+              <br /> Started December 14 2025
             </p>
 
             <div className="mt-8 flex gap-4">
-              <a
-                href="/about-me"
+              <Link
+                to="/about-me"
                 className="px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all shadow-lg shadow-indigo-500/20 transform hover:-translate-y-1"
               >
                 About Me
-              </a>
+              </Link>
+              {/* Note: Anchor tag is okay here for ID scrolling, or use a Link to your Projects page */}
               <a
-                href="#projects"
+                href="/projects"
                 className="px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-white font-medium backdrop-blur-sm transition-all transform hover:-translate-y-1"
               >
                 View Projects
@@ -53,9 +58,8 @@ const PortfolioPage = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 flex justify-center items-center">
-            {/* Right side content */}
-          </div>
+          {/* Right Column (Empty for now, keeps layout balanced) */}
+          <div className="w-full md:w-1/2 flex justify-center items-center"></div>
         </div>
       </div>
     </div>

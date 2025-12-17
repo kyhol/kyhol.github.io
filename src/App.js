@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 
+// REMOVED GoldenSpiralBackground from here
+
 // Import all your page components
 import Calculator from "./Components/Calculator/Calculator";
 import GroceryList from "./Components/GroceryList/GroceryList";
@@ -13,7 +15,7 @@ import Stopwatch from "./Components/StopWatch/StopWatch";
 import TextToSpeech from "./Components/TextToSpeech/TextToSpeech";
 import TodoList from "./Components/ToDoList/ToDoList";
 import WeatherApp from "./Components/WeatherApp/WeatherApp";
-import PortfolioPage from "./Components/LandingPage/LandingPage"; // Ensure this path is correct for your file structure!
+import PortfolioPage from "./Components/LandingPage/LandingPage";
 import AboutMe from "./Pages/About";
 import Contact from "./Pages/Contact";
 import KeyinPresentation from "./Components/Semester1/PowerPoint/PowerPoint";
@@ -36,20 +38,15 @@ import WildfireProximityApp from "./Components/WildfireProximity/WildfireProximi
 function AppContent() {
   const location = useLocation();
 
-  // Define which paths should NOT have top padding (Background touches top of screen)
-  // 1. The Home Page "/"
-  // 2. The Dog Gallery (if it has its own layout)
   const isFullScreen =
     location.pathname === "/" || location.pathname.includes("/dog-gallery");
 
-  // Determine if Navbar is shown (Example: Hide on Dog Gallery if desired, or keep it)
   const showNavbar = !location.pathname.includes("/dog-gallery");
 
   return (
     <>
       {showNavbar && <Navbar />}
 
-      {/* Dynamic Class Name based on route */}
       <div className={isFullScreen ? "fullscreen-content" : "main-content"}>
         <Routes>
           <Route path="/" element={<PortfolioPage />} />

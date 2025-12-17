@@ -87,14 +87,9 @@ const TechStackGrid = () => {
   const TechCard = ({ tech }) => (
     <TraceAndPopAnimation>
       <div
-        /* UPDATED CLASSES:
-           - w-32 h-32 (Mobile) -> md:w-48 md:h-48 (Desktop)
-           - p-4 (Mobile) -> p-6 (Desktop)
-        */
         className="group relative flex flex-col items-center justify-center p-4 md:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:bg-gray-700 transition-all duration-300 hover:scale-105 cursor-pointer w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48"
         title={tech.description}
       >
-        {/* Responsive Icon Size: text-4xl (Mobile) -> md:text-6xl (Desktop) */}
         <div
           className="text-4xl sm:text-5xl md:text-6xl mb-2 md:mb-4"
           style={{ color: tech.color }}
@@ -102,14 +97,19 @@ const TechStackGrid = () => {
           {tech.logo}
         </div>
 
-        {/* Responsive Text Size: text-xs (Mobile) -> text-lg (Desktop) */}
         <p className="text-gray-200 text-xs sm:text-base md:text-lg font-semibold text-center">
           {tech.name}
         </p>
 
-        {/* Hover Tooltip */}
-        <div className="absolute invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-900 text-white p-3 md:p-4 rounded-lg text-xs md:text-sm w-48 md:w-64 -top-full left-1/2 transform -translate-x-1/2 -translate-y-4 z-10 shadow-xl pointer-events-none">
+        {/* FIX APPLIED HERE:
+           1. Changed '-top-full' to 'bottom-full'. 
+              This aligns the bottom of the tooltip with the top of the card.
+           2. Changed '-translate-y-4' to 'mb-3'. 
+              This adds a small consistent margin between the card and tooltip.
+        */}
+        <div className="absolute invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-900 text-white p-3 md:p-4 rounded-lg text-xs md:text-sm w-48 md:w-64 bottom-full mb-3 left-1/2 transform -translate-x-1/2 z-50 shadow-xl pointer-events-none">
           {tech.description}
+          {/* Arrow pointing down */}
           <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-gray-900" />
         </div>
       </div>
@@ -117,7 +117,6 @@ const TechStackGrid = () => {
   );
 
   const renderRow = (technologies, className = "") => (
-    /* ADDED: flex-wrap to allow items to stack on small screens */
     <div
       className={`flex flex-wrap justify-center gap-4 md:gap-6 ${className}`}
     >
@@ -128,8 +127,8 @@ const TechStackGrid = () => {
   );
 
   return (
-    // Added overflow-hidden to prevent horizontal scrolling issues on small screens
-    <div className="max-w-6xl mx-auto p-4 md:p-8 w-full overflow-hidden">
+    // Reduced pt-24 to pt-12 since tooltips are closer now
+    <div className="max-w-6xl mx-auto p-4 md:p-8 pt-12 w-full overflow-visible">
       <div className="flex flex-col gap-4 md:gap-6 w-full">
         {renderRow(row1)}
         {renderRow(row2)}
