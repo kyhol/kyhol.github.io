@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 
-// REMOVED GoldenSpiralBackground from here
+// --- NEW IMPORT HERE ---
+import UnderConstruction from "./Components/UnderConstruction/UnderConstruction";
 
 // Import all your page components
 import Calculator from "./Components/Calculator/Calculator";
@@ -50,6 +51,26 @@ function AppContent() {
       <div className={isFullScreen ? "fullscreen-content" : "main-content"}>
         <Routes>
           <Route path="/" element={<PortfolioPage />} />
+
+          {/* --- NEW NAVBAR ROUTES --- */}
+          <Route
+            path="/keyin"
+            element={<UnderConstruction title="Keyin College" />}
+          />
+          <Route
+            path="/resume"
+            element={<UnderConstruction title="My Resume" />}
+          />
+          <Route
+            path="/side-projects"
+            element={<UnderConstruction title="Side Projects" />}
+          />
+          <Route
+            path="/tools"
+            element={<UnderConstruction title="Tools & Technologies" />}
+          />
+
+          {/* Existing Routes */}
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/grocery-list" element={<GroceryList />} />
           <Route path="/carousel" element={<Carousel />} />

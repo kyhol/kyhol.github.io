@@ -1,27 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Imported for the buttons
-import "./LandingPage.css";
+import { Link } from "react-router-dom";
+import "./LandingPage.css"; // You can keep this for basic resets, but we are using Tailwind mostly now
 import ProjectContainer from "../ProjectContainer/ProjectContainer";
-import "../ProjectContainer/ProjectContainer.css";
 
 // --- Asset Imports ---
+// TODO: Replace these with your actual screenshots for SkillMatchAI and Wildfire Proximity
 import CalculatorImage from "./Assets/image1.png";
 import TextToSpeechImage from "./Assets/image2.png";
 import SnakeGameImage from "./Assets/image3.png";
 import WeatherAppImage from "./Assets/image5.png";
-import ProfilePic from "../../Assets/Profile/HeadShot2.svg"; // Added Profile Pic Import
+import ProfilePic from "../../Assets/Profile/HeadShot2.svg";
 
 // --- Component Imports ---
 import LanguageExperience from "../LanguageExperience/LanguageExperience";
-import SocialLinks from "../SocialLinks/SocialLinks";
-import GoldenSpiralBackground from "../Animations/FloatingGeometryBackground"; // Added Background Import
+import SocialLinks from "../SocialLinks/SocialLinks"; // Kept if you need it
+import GoldenSpiralBackground from "../Animations/FloatingGeometryBackground";
 
 const LandingPage = () => {
   return (
-    <div className="landing-page-wrapper">
+    <div className="landing-page-wrapper bg-gray-900 text-white selection:bg-indigo-500 selection:text-white">
       {/* --- HERO SECTION START --- */}
-      {/* This section takes the full screen height (min-h-screen) and has the spiral background */}
-      <div className="relative w-full min-h-screen bg-gray-900 flex flex-col justify-center overflow-hidden">
+      <div className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden">
         {/* 1. Golden Spiral Background Layer */}
         <div className="absolute inset-0 z-0">
           <GoldenSpiralBackground />
@@ -38,17 +37,17 @@ const LandingPage = () => {
                   <img
                     src={ProfilePic}
                     alt="Kyle's Profile"
-                    className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover rounded-full ring-4 ring-blue-500/30 shadow-xl shadow-blue-500/20 transform transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </div>
 
               {/* Intro Text */}
-              <h1 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-4 tracking-tight">
+              <h1 className="text-5xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-4 tracking-tight">
                 Hi, I'm Kyle
               </h1>
 
-              <p className="text-xl text-gray-300 font-light max-w-lg leading-relaxed">
+              <p className="text-lg text-gray-300 font-light max-w-lg leading-relaxed">
                 Software Developer <br />
                 <span className="font-bold text-yellow-500">
                   **UNDER CONSTRUCTION**
@@ -65,7 +64,7 @@ const LandingPage = () => {
                   About Me
                 </Link>
                 <a
-                  href="#projects" // We can add an id="projects" to the section below if you want smooth scrolling
+                  href="#projects"
                   className="px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 text-white font-medium backdrop-blur-sm transition-all transform hover:-translate-y-1"
                 >
                   View Projects
@@ -73,54 +72,55 @@ const LandingPage = () => {
               </div>
             </div>
 
-            {/* Right side spacer (can be used for other content later) */}
+            {/* Right side spacer */}
             <div className="w-full md:w-1/2 flex justify-center items-center"></div>
           </div>
         </div>
       </div>
       {/* --- HERO SECTION END --- */}
-      {/* --- EXISTING LANDING CONTENT START --- */}
-      {/* I added id="projects" here so the "View Projects" button above scrolls to this section */}
-      <div className="landing-container" id="projects">
-        <h2 style={{ color: "whitesmoke" }}>Coding Skills</h2>
-        <hr />
-        <LanguageExperience />
 
-        <hr />
-        <SocialLinks />
+      {/* --- CONTENT SECTION START --- */}
+      <div className="container mx-auto px-4 py-20 relative z-10" id="projects">
+        {/* Coding Skills */}
+        <div className="mb-24">
+          <h2 className="text-3xl font-bold text-center text-white mb-8">
+            Coding Skills
+          </h2>
+          <hr className="border-gray-700 mb-8 w-24 mx-auto" />
+          <LanguageExperience />
+        </div>
 
-        {/* Updated Header with Class */}
-        <h2 className="featured-title">Featured Projects</h2>
+        {/* --- FEATURED PROJECTS --- */}
+        <div className="flex flex-col gap-12 md:gap-24">
+          <div className="text-center mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Featured Projects
+            </h2>
+            <div className="w-24 h-1 bg-indigo-500 mx-auto rounded-full"></div>
+          </div>
 
-        {/* <ProjectContainer
-          title="Calculator App"
-          description="A simple calculator built with React."
-          image={CalculatorImage}
-          link="/calculator"
-          codeLink="https://github.com/kyhol/Portfolio/blob/main/front-end/src/Components/Calculator/Calculator.jsx"
-        />
-        <ProjectContainer
-          title="Weather App"
-          description="A weather forecasting app using OpenWeather API."
-          image={WeatherAppImage}
-          link="/weather-app"
-          codeLink="https://github.com/kyhol/Portfolio/blob/main/front-end/src/Components/WeatherApp/WeatherApp.jsx"
-        />
-        <ProjectContainer
-          title="Snake Game"
-          description="A classic Snake game."
-          image={SnakeGameImage}
-          link="/snake-game"
-          codeLink="https://github.com/kyhol/Portfolio/blob/main/front-end/src/Components/SnakeGame/SnakeGame.jsx"
-        />
-        <ProjectContainer
-          title="Text-to-Speech Converter"
-          description="Convert text to speech using the Web Speech API."
-          image={TextToSpeechImage}
-          link="/text-to-speech"
-          codeLink="https://github.com/kyhol/Portfolio/tree/main/front-end/src/Components/TextToSpeech"
-        /> */}
+          {/* PROJECT 1: SkillMatchAI (Text Left / Image Right) */}
+          <ProjectContainer
+            title="SkillMatchAI"
+            description="An intelligent recruitment tool leveraging NLP to analyze resumes against job descriptions, ensuring the perfect candidate fit with data-driven precision."
+            image={CalculatorImage} // TODO: Replace with SkillMatchAI image
+            link="/skill-match-ai"
+            codeLink="https://github.com/kyhol/SkillMatchAI"
+            isReversed={false}
+          />
+
+          {/* PROJECT 2: Wildfire Proximity (Image Left / Text Right) */}
+          <ProjectContainer
+            title="Wildfire Proximity"
+            description="A real-time geospatial tracking application that monitors wildfire spread, calculating immediate threat levels for residential zones using live API data."
+            image={WeatherAppImage} // TODO: Replace with Wildfire image
+            link="/wildfire-proximity"
+            codeLink="https://github.com/kyhol/WildfireProximity"
+            isReversed={true}
+          />
+        </div>
       </div>
+      {/* --- CONTENT SECTION END --- */}
     </div>
   );
 };

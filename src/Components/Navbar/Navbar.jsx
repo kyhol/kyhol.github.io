@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-container">
-        {/* Left Side: Logo (Angled via CSS) */}
+        {/* Left Side: Logo */}
         <div className="navbar-left">
           <div className="navbar-name cedarville-cursive-regular">
             <span className="default-font">&lt;</span>
@@ -34,27 +34,43 @@ const Navbar = () => {
           <span className={isOpen ? "bar open" : "bar"}></span>
         </div>
 
-        {/* Right Side: Links (Centered via CSS) */}
+        {/* Right Side: Links */}
         <div className={`navbar-right ${isOpen ? "active" : ""}`}>
-          <Link to="/" onClick={closeMenu}>
-            Home
-          </Link>
-
-          {/* Replaced Dropdown with Direct Link */}
-          {/* You will need to create a Route for "/keyin" in your App.js */}
+          {/* Internal Pages (Under Construction) */}
           <Link to="/keyin" onClick={closeMenu}>
             Keyin
           </Link>
 
-          {/* Replaced Dropdown with Direct Link */}
-          {/* You will need to create a Route for "/side-projects" in your App.js */}
+          <Link to="/resume" onClick={closeMenu}>
+            Resume
+          </Link>
+
           <Link to="/side-projects" onClick={closeMenu}>
             Side Projects
           </Link>
 
-          <Link to="/about-me" onClick={closeMenu}>
-            About
+          <Link to="/tools" onClick={closeMenu}>
+            Tools
           </Link>
+
+          {/* EXTERNAL LINKS */}
+          <a
+            href="https://www.linkedin.com/in/kyle-hollett-8558842a8/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/kyhol"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+          >
+            GitHub
+          </a>
         </div>
       </div>
     </div>
